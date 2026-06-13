@@ -6,7 +6,7 @@
     <title>Harga Emas Hari Ini | Harga-Emas Rei</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
@@ -64,7 +64,7 @@
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-3 mb-5">
             <div>
                 <h1 class="section-title text-4xl tracking-tighter">Harga Emas Hari Ini</h1>
-                <p class="text-xs text-gray-500 mt-1">Pada 13 Jun 2026, 14:31 WIB</p>
+                <p class="text-xs text-gray-500 mt-1">Pada 13 Jun 2026, 14:32 WIB</p>
             </div>
             
             <div class="flex items-center gap-x-3">
@@ -79,10 +79,10 @@
             </div>
         </div>
 
-        <!-- Main Content: Spot Cards + Chart side by side -->
+        <!-- Main Content: Spot Cards LEFT + Chart RIGHT -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            <!-- Left: Spot Cards -->
+            <!-- LEFT: Spot Cards -->
             <div class="lg:col-span-5 space-y-5">
                 
                 <!-- USD Spot -->
@@ -131,7 +131,7 @@
                 </div>
             </div>
 
-            <!-- Right: Chart -->
+            <!-- RIGHT: Chart -->
             <div class="lg:col-span-7 bg-white border border-gray-100 rounded-3xl p-6">
                 <div class="flex items-center justify-between mb-4">
                     <div>
@@ -172,15 +172,15 @@
         <div class="flex justify-between mb-4"><h2 class="section-title">Kurs Valuta Asing</h2><span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border rounded-full"></span></div>
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="bank-logo w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center text-white text-sm font-bold">BI</div><div><div class="font-bold">Bank Indonesia</div><div class="text-xs text-gray-500">Sumber Resmi</div></div></div>
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center text-white text-sm font-bold">BI</div><div><div class="font-bold">Bank Indonesia</div><div class="text-xs text-gray-500">Sumber Resmi</div></div></div>
                 <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bi-kurs-body" class="divide-y"></tbody></table>
             </div>
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="bank-logo w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white text-sm font-bold">Mandiri</div><div><div class="font-bold">Bank Mandiri</div><div class="text-xs text-gray-500">Sumber Mandiri</div></div></div>
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white text-sm font-bold">Mandiri</div><div><div class="font-bold">Bank Mandiri</div><div class="text-xs text-gray-500">Sumber Mandiri</div></div></div>
                 <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="mandiri-kurs-body" class="divide-y"></tbody></table>
             </div>
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="bank-logo w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center"><span class="text-white text-[10px] font-bold">BCA</span></div><div><div class="font-bold">Bank Central Asia</div><div class="text-xs text-gray-500">Sumber BCA</div></div></div>
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center"><span class="text-white text-[10px] font-bold">BCA</span></div><div><div class="font-bold">Bank Central Asia</div><div class="text-xs text-gray-500">Sumber BCA</div></div></div>
                 <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bca-kurs-body" class="divide-y"></tbody></table>
             </div>
         </div>
@@ -256,12 +256,14 @@
         function initChart() {
             const canvas = document.getElementById('goldChart');
             if (!canvas) {
-                console.error('Canvas goldChart not found');
+                console.error('Canvas not found');
                 return;
             }
 
+            // Destroy previous chart if exists
             if (chartInstance) {
                 chartInstance.destroy();
+                chartInstance = null;
             }
 
             try {
@@ -270,7 +272,7 @@
                     data: {
                         labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
                         datasets: [{
-                            label: 'Harga per Gram (Rp)',
+                            label: 'Harga per Gram',
                             data: [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416],
                             borderColor: '#D4AF37',
                             backgroundColor: 'rgba(212,175,55,0.12)',
@@ -283,21 +285,29 @@
                     options: {
                         responsive: true,
                         maintainAspectRatio: false,
-                        plugins: { legend: { display: false } },
+                        plugins: {
+                            legend: { display: false }
+                        },
                         scales: {
-                            x: { grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8', font: { size: 10 } } },
-                            y: { grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8', font: { size: 10 }, callback: v => (v / 1000000).toFixed(1) + 'jt' } }
+                            x: {
+                                grid: { color: '#f1f5f9' },
+                                ticks: { color: '#94a3b8', font: { size: 10 } }
+                            },
+                            y: {
+                                grid: { color: '#f1f5f9' },
+                                ticks: { color: '#94a3b8', font: { size: 10 }, callback: function(v) { return (v / 1000000).toFixed(1) + 'jt'; } }
+                            }
                         }
                     }
                 });
-                console.log('Chart initialized successfully');
+                console.log('%c[Chart] Gold price chart initialized successfully', 'color: #854D0E');
             } catch (error) {
-                console.error('Error initializing chart:', error);
+                console.error('Failed to initialize chart:', error);
             }
         }
 
         function updateChartPeriod() {
-            alert('Fitur update grafik akan dikembangkan lebih lanjut.');
+            alert('Fitur ini akan dikembangkan lebih lanjut di versi selanjutnya.');
         }
 
         function initMobile() {
@@ -315,8 +325,14 @@
             renderTable('antam-table-body', antamPrices);
             renderTable('pegadaian-table-body', pegadaianPrices);
             renderKursTables();
-            initChart();
+            
+            // Initialize chart with small delay to ensure DOM is ready
+            setTimeout(() => {
+                initChart();
+            }, 100);
+
             initMobile();
+
             if (document.querySelectorAll('.tab-btn').length > 0) {
                 document.querySelectorAll('.tab-btn')[0].classList.add('tab-active');
             }
