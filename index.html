@@ -10,10 +10,6 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap');
         
-        :root {
-            --gold: #D4AF37;
-        }
-        
         body {
             font-family: 'Inter', system_ui, sans-serif;
         }
@@ -23,41 +19,10 @@
         }
 
         .section-title {
-            font-size: 1.5rem;
-            line-height: 1.2;
+            font-size: 1.65rem;
+            line-height: 1.15;
             font-weight: 700;
-            letter-spacing: -0.025em;
-        }
-
-        .price-card {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        
-        .price-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
-        }
-
-        .modern-table {
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.05), 0 4px 6px -4px rgb(0 0 0 / 0.05);
-        }
-
-        .tab-active {
-            background-color: #FEF9E7;
-            color: #854D0E;
-            border-bottom: 3px solid #D4AF37;
-            font-weight: 600;
-        }
-
-        .metric-value {
-            font-variant-numeric: tabular-nums;
-            font-feature-settings: "tnum";
-        }
-
-        .gold-gradient {
-            background: linear-gradient(135deg, #D4AF37, #B8972E);
+            letter-spacing: -0.03em;
         }
 
         .fresh-card {
@@ -77,69 +42,74 @@
             color: #854D0E;
         }
 
+        .metric-value {
+            font-variant-numeric: tabular-nums;
+        }
+
+        .gold-gradient {
+            background: linear-gradient(135deg, #D4AF37, #B8972E);
+        }
+
         .kurs-header {
             background: linear-gradient(to right, #F8F1E3, #FEF9E7);
+        }
+
+        .hero-price {
+            font-size: 2.75rem;
+            line-height: 1;
+            font-weight: 800;
+            letter-spacing: -0.04em;
         }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
     
-    <!-- Top Promo Banner (Fresh & Modern) -->
-    <div class="bg-gradient-to-r from-[#1E2937] to-[#0F172A] text-white py-2.5">
+    <!-- Top Promo Banner -->
+    <div class="bg-gradient-to-r from-[#1E2937] to-[#0F172A] text-white py-2">
         <div class="max-w-7xl mx-auto px-6 flex items-center justify-between text-sm">
             <div class="flex items-center gap-x-3">
-                <div class="flex items-center gap-x-2">
-                    <i class="fa-solid fa-globe text-emerald-400"></i>
-                    <span class="font-medium">950+ Saham Indonesia</span>
-                </div>
-                <div class="hidden md:block text-white/40">|</div>
-                <span class="hidden md:inline text-emerald-400 font-medium">0% Biaya Trading • Kini Hadir di Harga-Emas Rei</span>
+                <span class="font-medium">950+ Saham Indonesia</span>
+                <span class="hidden md:inline text-emerald-400">• 0% Biaya Trading</span>
             </div>
-            <a href="https://pluang.com" target="_blank" 
-               class="inline-flex items-center gap-x-2 text-sm font-semibold hover:text-emerald-300 transition-colors">
-                <span>Download App</span>
-                <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
+            <a href="https://pluang.com" target="_blank" class="font-semibold hover:text-emerald-300 transition-colors flex items-center gap-x-1.5 text-sm">
+                Download App <i class="fa-solid fa-arrow-up-right-from-square text-xs"></i>
             </a>
         </div>
     </div>
 
-    <!-- Navbar - Fresh & Clean -->
-    <nav class="bg-white border-b border-gray-100 sticky top-0 z-50">
+    <!-- Navbar -->
+    <nav class="bg-white border-b sticky top-0 z-50">
         <div class="max-w-7xl mx-auto px-6">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
                 <div class="flex items-center gap-x-3">
-                    <div class="w-9 h-9 gold-gradient rounded-2xl flex items-center justify-center shadow-inner">
+                    <div class="w-9 h-9 gold-gradient rounded-2xl flex items-center justify-center">
                         <i class="fa-solid fa-coins text-white text-2xl"></i>
                     </div>
                     <div>
                         <span class="font-display text-2xl font-bold tracking-tighter">Harga-Emas</span>
-                        <span class="text-xs text-amber-600 font-semibold block -mt-1 tracking-[1px]">REI</span>
+                        <span class="text-[10px] text-amber-600 font-bold tracking-[1.5px] block -mt-1">REI</span>
                     </div>
                 </div>
 
-                <!-- Menu -->
                 <div class="hidden md:flex items-center gap-x-7 text-sm font-medium">
-                    <a href="#spot" class="nav-link text-gray-700">Emas</a>
-                    <a href="#harga" class="nav-link text-gray-700">Harga</a>
-                    <a href="#kurs" class="nav-link text-gray-700">Kurs</a>
-                    <a href="#grafik" class="nav-link text-gray-700">Grafik</a>
-                    <a href="#pluang" class="nav-link text-gray-700">Investasi</a>
+                    <a href="#spot" class="nav-link">Emas</a>
+                    <a href="#harga" class="nav-link">Harga</a>
+                    <a href="#kurs" class="nav-link">Kurs</a>
+                    <a href="#grafik" class="nav-link">Grafik</a>
+                    <a href="#pluang" class="nav-link">Investasi</a>
                 </div>
 
                 <div class="flex items-center gap-x-3">
-                    <a href="#download" 
-                       class="hidden md:inline-flex items-center px-5 py-2 text-sm font-semibold border border-gray-200 hover:bg-gray-50 rounded-2xl transition-all">
-                        <i class="fa-solid fa-download mr-2 text-xs"></i>
-                        <span>Download</span>
+                    <a href="#download" class="hidden md:inline-flex items-center px-5 py-2 text-sm font-semibold border border-gray-200 hover:bg-gray-50 rounded-2xl">
+                        <i class="fa-solid fa-download mr-2 text-xs"></i> Download
                     </a>
                     
                     <a href="https://pluang.com" target="_blank"
-                       class="inline-flex items-center px-6 py-2.5 gold-gradient text-white text-sm font-semibold rounded-2xl hover:brightness-105 transition-all shadow-sm">
-                        <span>Beli Emas</span>
+                       class="inline-flex items-center px-6 py-2.5 gold-gradient text-white text-sm font-semibold rounded-2xl hover:brightness-105">
+                        Beli Emas
                     </a>
 
-                    <button class="md:hidden w-10 h-10 flex items-center justify-center text-gray-600" id="mobile-menu-btn">
+                    <button id="mobile-menu-btn" class="md:hidden w-10 h-10 flex items-center justify-center">
                         <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
@@ -147,386 +117,222 @@
         </div>
     </nav>
 
-    <!-- Hero Section - Fresh Layout (inspired by Pluang) -->
-    <div id="spot" class="max-w-7xl mx-auto px-6 pt-8 pb-4">
-        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-3 mb-6">
+    <!-- Hero Section - Fixed Overlap -->
+    <div id="spot" class="max-w-7xl mx-auto px-6 pt-8">
+        <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-4 mb-6">
             <div>
-                <div class="inline-flex items-center gap-x-2 px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full mb-3">
-                    <i class="fa-solid fa-sync fa-spin-pulse"></i>
-                    <span>Update Real-time • 13 Jun 2026, 14:18 WIB</span>
+                <div class="inline-flex items-center px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-semibold rounded-full mb-3">
+                    <i class="fa-solid fa-sync fa-spin-pulse mr-1.5"></i>
+                    <span>Update Real-time • 13 Jun 2026</span>
                 </div>
-                <h1 class="section-title text-4xl md:text-5xl tracking-tighter">Harga Emas Hari Ini</h1>
+                <h1 class="section-title text-4xl md:text-[42px] tracking-tighter">Harga Emas Hari Ini</h1>
             </div>
             
-            <div class="flex items-center gap-x-4">
+            <!-- Price + CTA (No Overlap) -->
+            <div class="flex flex-col sm:flex-row items-start sm:items-center gap-x-4 gap-y-3">
                 <div class="text-right">
                     <div class="text-sm text-gray-500">Harga per Gram</div>
-                    <div class="text-3xl font-bold text-emerald-600 metric-value">Rp2.455.416</div>
-                    <div class="text-emerald-600 text-sm font-medium flex items-center justify-end gap-x-1">
+                    <div class="hero-price text-emerald-600">Rp2.455.416</div>
+                    <div class="flex items-center justify-end gap-x-1.5 text-emerald-600 text-sm font-semibold">
                         <i class="fa-solid fa-arrow-trend-up"></i>
                         <span>+Rp56.193 (2.34%)</span>
                     </div>
                 </div>
+                
                 <button onclick="showBuyModal()" 
-                        class="px-8 py-3.5 gold-gradient text-white font-semibold rounded-2xl flex items-center gap-x-2 shadow-lg hover:brightness-105 active:scale-[0.985] transition-all">
+                        class="px-8 py-3.5 gold-gradient text-white font-semibold rounded-2xl flex items-center gap-x-2 shadow-md hover:brightness-105 active:scale-[0.985] transition-all whitespace-nowrap">
                     <i class="fa-solid fa-wallet"></i>
                     <span>Beli Sekarang</span>
                 </button>
             </div>
         </div>
 
-        <!-- Main Content Grid -->
+        <!-- Main Grid -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
-            <!-- Left: Spot Prices -->
-            <div class="lg:col-span-5">
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    
-                    <!-- USD Spot -->
-                    <div class="fresh-card bg-white border border-gray-100 rounded-3xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-x-3">
-                                <div class="w-10 h-10 bg-blue-100 rounded-2xl flex items-center justify-center">
-                                    <i class="fa-solid fa-dollar-sign text-blue-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">USD Spot</div>
-                                    <div class="text-xs text-gray-500">Dunia per Ounce</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold metric-value">$4,191.86</div>
-                                <div class="text-emerald-600 text-xs font-medium">+2.63%</div>
-                            </div>
-                        </div>
-                        <div class="pt-3 border-t flex justify-between text-sm">
-                            <div>
-                                <div class="text-gray-500 text-xs">per Gram</div>
-                                <div class="font-semibold">$134.77</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-emerald-600 text-xs font-medium">+Rp56.193</div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- IDR Spot -->
-                    <div class="fresh-card bg-white border border-gray-100 rounded-3xl p-6">
-                        <div class="flex items-center justify-between mb-4">
-                            <div class="flex items-center gap-x-3">
-                                <div class="w-10 h-10 bg-red-100 rounded-2xl flex items-center justify-center">
-                                    <i class="fa-solid fa-globe text-red-600 text-2xl"></i>
-                                </div>
-                                <div>
-                                    <div class="font-semibold">IDR Spot</div>
-                                    <div class="text-xs text-gray-500">Dunia per Ounce</div>
-                                </div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-2xl font-bold metric-value">Rp75.223.850</div>
-                                <div class="text-emerald-600 text-xs font-medium">+2.34%</div>
-                            </div>
-                        </div>
-                        <div class="pt-3 border-t flex justify-between text-sm">
-                            <div>
-                                <div class="text-gray-500 text-xs">per Gram</div>
-                                <div class="font-semibold">Rp2.414.349</div>
-                            </div>
-                            <div class="text-right">
-                                <div class="text-emerald-600 text-xs font-medium">+2.34%</div>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Right: Big Price + Chart -->
-            <div class="lg:col-span-7">
-                <div class="bg-white border border-gray-100 rounded-3xl p-6 h-full">
-                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-y-4 mb-4">
-                        <div>
-                            <div class="text-sm text-gray-500">Harga Emas Digital (per gram)</div>
-                            <div class="text-4xl font-bold tracking-tighter metric-value">Rp2.455.416</div>
-                            <div class="flex items-center gap-x-2 mt-1">
-                                <span class="inline-flex items-center text-emerald-600 text-sm font-semibold">
-                                    <i class="fa-solid fa-arrow-trend-up mr-1"></i> +2.34%
-                                </span>
-                                <span class="text-xs px-2.5 py-0.5 bg-emerald-100 text-emerald-700 rounded-full font-medium">5 Tahun Terakhir</span>
-                            </div>
-                        </div>
-                        
-                        <div class="flex items-center gap-x-3">
-                            <button onclick="updateChartPeriod(0)" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl active:bg-amber-50">1D</button>
-                            <button onclick="updateChartPeriod(1)" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1W</button>
-                            <button onclick="updateChartPeriod(2)" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1M</button>
-                        </div>
-                    </div>
-
-                    <div class="h-[200px] -mx-1">
-                        <canvas id="goldChart" class="w-full h-full"></canvas>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <!-- Kenapa Investasi Section (Fresh) -->
-    <div class="max-w-7xl mx-auto px-6 pt-8">
-        <div class="bg-white border border-gray-100 rounded-3xl p-8">
-            <div class="grid md:grid-cols-12 gap-x-8 items-center">
-                <div class="md:col-span-5 mb-6 md:mb-0">
-                    <div class="uppercase tracking-[2px] text-xs font-bold text-amber-600 mb-2">KENAPA PILIH KAMI?</div>
-                    <h2 class="section-title text-3xl tracking-tighter mb-3">Investasi Emas Lebih Mudah & Aman</h2>
-                    <p class="text-gray-600">Mulai dari Rp10.000. Cicilan hingga 36 bulan. Tanpa modal besar. Data real-time dari sumber terpercaya.</p>
-                </div>
+            <!-- Spot Cards -->
+            <div class="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-5">
                 
-                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-5">
-                    <div class="flex gap-4">
-                        <div class="w-9 h-9 flex-shrink-0 mt-0.5"><i class="fa-solid fa-shield-halved text-3xl text-emerald-500"></i></div>
+                <!-- USD Spot -->
+                <div class="fresh-card bg-white border border-gray-100 rounded-3xl p-6">
+                    <div class="flex items-start justify-between">
                         <div>
-                            <div class="font-semibold">Aman & Terpercaya</div>
-                            <div class="text-sm text-gray-500 mt-0.5">Didukung Pluang • Pengawasan OJK</div>
+                            <div class="flex items-center gap-x-2 mb-1">
+                                <i class="fa-solid fa-dollar-sign text-blue-600 text-xl"></i>
+                                <span class="font-semibold">USD Spot</span>
+                            </div>
+                            <div class="text-xs text-gray-500">Dunia per Ounce</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold">$4,191.86</div>
+                            <div class="text-emerald-600 text-xs font-semibold">+2.63%</div>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-9 h-9 flex-shrink-0 mt-0.5"><i class="fa-solid fa-wallet text-3xl text-emerald-500"></i></div>
+                    <div class="mt-6 pt-4 border-t text-sm flex justify-between">
                         <div>
-                            <div class="font-semibold">Mulai dari Rp10.000</div>
-                            <div class="text-sm text-gray-500 mt-0.5">Cicilan hingga 36 bulan tanpa riba</div>
+                            <div class="text-xs text-gray-500">per Gram</div>
+                            <div class="font-semibold">$134.77</div>
+                        </div>
+                        <div class="text-right text-emerald-600 text-xs font-medium">+Rp56.193</div>
+                    </div>
+                </div>
+
+                <!-- IDR Spot -->
+                <div class="fresh-card bg-white border border-gray-100 rounded-3xl p-6">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <div class="flex items-center gap-x-2 mb-1">
+                                <i class="fa-solid fa-globe text-red-600 text-xl"></i>
+                                <span class="font-semibold">IDR Spot</span>
+                            </div>
+                            <div class="text-xs text-gray-500">Dunia per Ounce</div>
+                        </div>
+                        <div class="text-right">
+                            <div class="text-2xl font-bold">Rp75.223.850</div>
+                            <div class="text-emerald-600 text-xs font-semibold">+2.34%</div>
                         </div>
                     </div>
-                    <div class="flex gap-4">
-                        <div class="w-9 h-9 flex-shrink-0 mt-0.5"><i class="fa-solid fa-sync text-3xl text-emerald-500"></i></div>
+                    <div class="mt-6 pt-4 border-t text-sm flex justify-between">
                         <div>
-                            <div class="font-semibold">Auto Invest Bulanan</div>
-                            <div class="text-sm text-gray-500 mt-0.5">Atur pembelian otomatis setiap bulan</div>
+                            <div class="text-xs text-gray-500">per Gram</div>
+                            <div class="font-semibold">Rp2.414.349</div>
                         </div>
+                        <div class="text-right text-emerald-600 text-xs font-medium">+2.34%</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="lg:col-span-7 bg-white border border-gray-100 rounded-3xl p-6">
+                <div class="flex items-center justify-between mb-4">
+                    <div>
+                        <div class="text-sm text-gray-500">Harga Emas Digital (per gram)</div>
+                        <div class="text-3xl font-bold tracking-tighter">Rp2.455.416</div>
+                    </div>
+                    
+                    <div class="flex items-center gap-x-2">
+                        <button onclick="updateChartPeriod(0)" class="px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1D</button>
+                        <button onclick="updateChartPeriod(1)" class="px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1W</button>
+                        <button onclick="updateChartPeriod(2)" class="px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1M</button>
+                    </div>
+                </div>
+
+                <div class="h-[210px] -mx-2">
+                    <canvas id="goldChart"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Kenapa Section -->
+    <div class="max-w-7xl mx-auto px-6 pt-9">
+        <div class="bg-white border border-gray-100 rounded-3xl p-8">
+            <div class="grid md:grid-cols-12 gap-x-8">
+                <div class="md:col-span-5">
+                    <div class="text-amber-600 text-xs font-bold tracking-[1.5px] mb-1.5">KENAPA PILIH KAMI?</div>
+                    <h2 class="section-title mb-2">Investasi Emas Lebih Mudah & Aman</h2>
+                </div>
+                <div class="md:col-span-7 grid grid-cols-1 sm:grid-cols-3 gap-x-6 gap-y-5 mt-2 md:mt-0">
+                    <div class="flex gap-3.5">
+                        <i class="fa-solid fa-shield-halved text-2xl text-emerald-500 mt-0.5"></i>
+                        <div class="text-sm"><span class="font-semibold">Aman & Terpercaya</span><br><span class="text-gray-500 text-xs">Didukung Pluang • OJK</span></div>
+                    </div>
+                    <div class="flex gap-3.5">
+                        <i class="fa-solid fa-wallet text-2xl text-emerald-500 mt-0.5"></i>
+                        <div class="text-sm"><span class="font-semibold">Mulai dari Rp10.000</span><br><span class="text-gray-500 text-xs">Cicilan hingga 36 bulan</span></div>
+                    </div>
+                    <div class="flex gap-3.5">
+                        <i class="fa-solid fa-sync text-2xl text-emerald-500 mt-0.5"></i>
+                        <div class="text-sm"><span class="font-semibold">Auto Invest Bulanan</span><br><span class="text-gray-500 text-xs">Atur pembelian otomatis</span></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Kurs Section (Already Fresh) -->
-    <div id="kurs" class="max-w-7xl mx-auto px-6 pt-10">
-        <div class="flex items-center justify-between mb-5">
+    <!-- Kurs Section -->
+    <div id="kurs" class="max-w-7xl mx-auto px-6 pt-9">
+        <div class="flex justify-between items-end mb-5">
             <div>
                 <h2 class="section-title">Kurs Valuta Asing</h2>
-                <p class="text-sm text-gray-500">Perbandingan kurs dari bank-bank besar Indonesia</p>
             </div>
-            <span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border border-gray-200 rounded-full text-gray-500 font-medium"></span>
+            <span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border rounded-full text-gray-500"></span>
         </div>
 
-        <!-- 3 Bank Layout (sudah bagus dari update sebelumnya) -->
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            
             <!-- BI -->
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
                 <div class="px-5 py-4 kurs-header flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center">
-                        <i class="fa-solid fa-landmark text-white"></i>
-                    </div>
-                    <div>
-                        <div class="font-bold">Bank Indonesia (BI)</div>
-                        <div class="text-xs text-gray-500">Sumber Resmi</div>
-                    </div>
+                    <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-landmark text-white"></i></div>
+                    <div><div class="font-bold">Bank Indonesia (BI)</div><div class="text-xs text-gray-500">Sumber Resmi</div></div>
                 </div>
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-5 py-3 text-left font-semibold text-gray-600">Kurs</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Beli</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Jual</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bi-kurs-body" class="divide-y text-gray-700"></tbody>
-                </table>
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bi-kurs-body" class="divide-y"></tbody></table>
             </div>
 
             <!-- Mandiri -->
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
                 <div class="px-5 py-4 kurs-header flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-red-600 rounded-2xl flex items-center justify-center">
-                        <span class="text-white text-sm font-bold">M</span>
-                    </div>
-                    <div>
-                        <div class="font-bold">Bank Mandiri</div>
-                        <div class="text-xs text-gray-500">Sumber Bank Mandiri</div>
-                    </div>
+                    <div class="w-9 h-9 bg-red-600 rounded-2xl flex items-center justify-center"><span class="text-white text-sm font-bold">M</span></div>
+                    <div><div class="font-bold">Bank Mandiri</div><div class="text-xs text-gray-500">Sumber Mandiri</div></div>
                 </div>
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-5 py-3 text-left font-semibold text-gray-600">Kurs</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Beli</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Jual</th>
-                        </tr>
-                    </thead>
-                    <tbody id="mandiri-kurs-body" class="divide-y text-gray-700"></tbody>
-                </table>
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="mandiri-kurs-body" class="divide-y"></tbody></table>
             </div>
 
             <!-- BCA -->
             <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
                 <div class="px-5 py-4 kurs-header flex items-center gap-x-3">
-                    <div class="w-9 h-9 bg-blue-700 rounded-2xl flex items-center justify-center">
-                        <span class="text-white text-[10px] font-bold">BCA</span>
-                    </div>
-                    <div>
-                        <div class="font-bold">Bank Central Asia</div>
-                        <div class="text-xs text-gray-500">Sumber BCA</div>
-                    </div>
+                    <div class="w-9 h-9 bg-blue-700 rounded-2xl flex items-center justify-center"><span class="text-white text-[10px] font-bold">BCA</span></div>
+                    <div><div class="font-bold">Bank Central Asia</div><div class="text-xs text-gray-500">Sumber BCA</div></div>
                 </div>
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-5 py-3 text-left font-semibold text-gray-600">Kurs</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Beli</th>
-                            <th class="px-5 py-3 text-right font-semibold text-gray-600">Jual</th>
-                        </tr>
-                    </thead>
-                    <tbody id="bca-kurs-body" class="divide-y text-gray-700"></tbody>
-                </table>
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bca-kurs-body" class="divide-y"></tbody></table>
             </div>
         </div>
     </div>
 
-    <!-- Harga Emas per Gram -->
-    <div id="harga" class="max-w-7xl mx-auto px-6 pt-10">
-        <div class="flex items-end justify-between mb-6">
+    <!-- Harga Emas Table -->
+    <div id="harga" class="max-w-7xl mx-auto px-6 pt-9">
+        <div class="flex justify-between items-end mb-5">
             <div>
                 <h2 class="section-title">Harga Emas per Gram</h2>
-                <p class="text-sm text-gray-500 mt-1">Data real-time • Update setiap menit</p>
-            </div>
-            <div class="hidden md:flex items-center text-xs px-3 py-1.5 bg-white border rounded-2xl">
-                <i class="fa-solid fa-sync text-emerald-500 mr-2"></i>
-                <span class="font-medium">Powered by Pluang</span>
             </div>
         </div>
 
-        <!-- Tabs -->
-        <div class="flex border-b mb-5 overflow-x-auto">
-            <button onclick="switchTab(0)" class="tab-btn px-7 py-3 text-sm font-semibold border-b-3 border-transparent hover:text-amber-700 tab-active" data-tab="0">
-                UBS Gold
-            </button>
-            <button onclick="switchTab(1)" class="tab-btn px-7 py-3 text-sm font-semibold border-b-3 border-transparent hover:text-amber-700" data-tab="1">
-                Antam
-            </button>
-            <button onclick="switchTab(2)" class="tab-btn px-7 py-3 text-sm font-semibold border-b-3 border-transparent hover:text-amber-700" data-tab="2">
-                Pegadaian
-            </button>
+        <div class="flex border-b mb-4">
+            <button onclick="switchTab(0)" class="tab-btn px-6 py-3 font-semibold tab-active" data-tab="0">UBS Gold</button>
+            <button onclick="switchTab(1)" class="tab-btn px-6 py-3 font-semibold" data-tab="1">Antam</button>
+            <button onclick="switchTab(2)" class="tab-btn px-6 py-3 font-semibold" data-tab="2">Pegadaian</button>
         </div>
 
-        <!-- Tables -->
         <div id="tab-0" class="tab-content">
-            <div class="modern-table bg-white border border-gray-100 rounded-3xl overflow-hidden">
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-7 py-4 text-left font-semibold">Gram</th>
-                            <th class="px-7 py-4 text-right font-semibold">Jual (Rp)</th>
-                            <th class="px-7 py-4 text-right font-semibold">Beli (Rp)</th>
-                            <th class="px-7 py-4 w-16"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="ubs-table-body" class="divide-y"></tbody>
-                </table>
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-7 py-3.5 text-left">Gram</th><th class="px-7 py-3.5 text-right">Jual (Rp)</th><th class="px-7 py-3.5 text-right">Beli (Rp)</th><th class="w-16"></th></tr></thead><tbody id="ubs-table-body" class="divide-y"></tbody></table>
             </div>
         </div>
-
         <div id="tab-1" class="tab-content hidden">
-            <div class="modern-table bg-white border border-gray-100 rounded-3xl overflow-hidden">
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-7 py-4 text-left font-semibold">Gram</th>
-                            <th class="px-7 py-4 text-right font-semibold">Jual (Rp)</th>
-                            <th class="px-7 py-4 text-right font-semibold">Beli (Rp)</th>
-                            <th class="px-7 py-4 w-16"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="antam-table-body" class="divide-y"></tbody>
-                </table>
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-7 py-3.5 text-left">Gram</th><th class="px-7 py-3.5 text-right">Jual (Rp)</th><th class="px-7 py-3.5 text-right">Beli (Rp)</th><th class="w-16"></th></tr></thead><tbody id="antam-table-body" class="divide-y"></tbody></table>
             </div>
         </div>
-
         <div id="tab-2" class="tab-content hidden">
-            <div class="modern-table bg-white border border-gray-100 rounded-3xl overflow-hidden">
-                <table class="w-full text-sm">
-                    <thead class="bg-gray-50">
-                        <tr>
-                            <th class="px-7 py-4 text-left font-semibold">Gram</th>
-                            <th class="px-7 py-4 text-right font-semibold">Jual (Rp)</th>
-                            <th class="px-7 py-4 text-right font-semibold">Beli (Rp)</th>
-                            <th class="px-7 py-4 w-16"></th>
-                        </tr>
-                    </thead>
-                    <tbody id="pegadaian-table-body" class="divide-y"></tbody>
-                </table>
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-7 py-3.5 text-left">Gram</th><th class="px-7 py-3.5 text-right">Jual (Rp)</th><th class="px-7 py-3.5 text-right">Beli (Rp)</th><th class="w-16"></th></tr></thead><tbody id="pegadaian-table-body" class="divide-y"></tbody></table>
             </div>
         </div>
     </div>
 
-    <!-- Other Products -->
-    <div class="max-w-7xl mx-auto px-6 pt-10">
-        <h2 class="section-title mb-5">Produk Lainnya</h2>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
-            
-            <!-- Saham -->
-            <div class="bg-white border border-gray-100 rounded-3xl p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="font-semibold">Saham AS</div>
-                    <a href="#" class="text-xs text-emerald-600 font-medium">Lihat Semua →</a>
-                </div>
-                <div class="grid grid-cols-3 gap-y-3 text-sm">
-                    <div class="flex justify-between"><span>NVDA</span> <span class="text-emerald-600 font-medium">+0.31%</span></div>
-                    <div class="flex justify-between"><span>GOOGL</span> <span class="text-emerald-600 font-medium">+1.56%</span></div>
-                    <div class="flex justify-between"><span>AAPL</span> <span class="text-red-500 font-medium">-1.37%</span></div>
-                </div>
-            </div>
-
-            <!-- Kripto -->
-            <div class="bg-white border border-gray-100 rounded-3xl p-6">
-                <div class="flex justify-between items-center mb-4">
-                    <div class="font-semibold">Kripto</div>
-                    <a href="#" class="text-xs text-emerald-600 font-medium">Lihat Semua →</a>
-                </div>
-                <div class="grid grid-cols-3 gap-y-3 text-sm">
-                    <div class="flex justify-between"><span>BTC</span> <span class="text-emerald-600 font-medium">+1.37%</span></div>
-                    <div class="flex justify-between"><span>ETH</span> <span class="text-emerald-600 font-medium">+0.99%</span></div>
-                    <div class="flex justify-between"><span>BNB</span> <span class="text-emerald-600 font-medium">+1.00%</span></div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Strong CTA -->
-    <div id="pluang" class="max-w-7xl mx-auto px-6 pt-10 pb-6">
-        <div class="bg-gradient-to-br from-yellow-900 to-amber-950 text-white rounded-3xl p-9 md:p-10">
-            <div class="grid md:grid-cols-2 gap-8 items-center">
+    <!-- CTA -->
+    <div id="pluang" class="max-w-7xl mx-auto px-6 pt-9 pb-4">
+        <div class="bg-gradient-to-br from-yellow-900 to-amber-950 rounded-3xl p-8 md:p-9 text-white">
+            <div class="grid md:grid-cols-2 gap-6 items-center">
                 <div>
-                    <div class="uppercase tracking-widest text-xs font-bold text-yellow-400 mb-2">INVESTASI EMAS DIGITAL</div>
-                    <h3 class="text-3xl md:text-4xl font-bold tracking-tighter mb-3">Mulai Investasi Emas<br> dari Rp10.000</h3>
-                    <p class="text-yellow-200 max-w-md">Cicilan hingga 36 bulan • Tanpa modal besar • Instant settlement</p>
-                    
-                    <div class="flex flex-wrap gap-3 mt-6">
-                        <button onclick="showBuyModal()" 
-                                class="px-8 py-3.5 bg-white text-gray-900 font-semibold rounded-2xl flex items-center gap-x-2 hover:bg-amber-50 transition-all">
-                            <span>Beli Emas Sekarang</span>
-                        </button>
-                        <a href="https://pluang.com" target="_blank"
-                           class="px-6 py-3.5 border border-white/30 hover:bg-white/10 rounded-2xl flex items-center gap-x-2 text-sm font-medium transition-all">
-                            <span>Download Aplikasi Pluang</span>
-                        </a>
-                    </div>
+                    <div class="text-yellow-400 text-xs font-bold tracking-widest mb-1">INVESTASI EMAS DIGITAL</div>
+                    <h3 class="text-3xl font-bold tracking-tighter mb-2">Mulai dari Rp10.000</h3>
+                    <p class="text-yellow-200">Cicilan hingga 36 bulan • Tanpa modal besar</p>
                 </div>
-                
-                <div class="text-sm text-yellow-200 space-y-3">
-                    <div class="flex gap-3"><i class="fa-solid fa-check mt-1"></i> <span>Bebas biaya penyimpanan</span></div>
-                    <div class="flex gap-3"><i class="fa-solid fa-check mt-1"></i> <span>Bisa dicicil hingga 36 bulan</span></div>
-                    <div class="flex gap-3"><i class="fa-solid fa-check mt-1"></i> <span>Investasi otomatis setiap bulan</span></div>
+                <div class="flex flex-wrap gap-3">
+                    <button onclick="showBuyModal()" class="px-7 py-3 bg-white text-gray-900 font-semibold rounded-2xl">Beli Emas Sekarang</button>
+                    <a href="https://pluang.com" target="_blank" class="px-6 py-3 border border-white/30 rounded-2xl flex items-center gap-x-2 text-sm">Download Pluang</a>
                 </div>
             </div>
         </div>
@@ -534,325 +340,194 @@
 
     <!-- Footer -->
     <footer class="bg-white border-t">
-        <div class="max-w-7xl mx-auto px-6 py-9 text-sm">
-            <div class="flex flex-col md:flex-row justify-between gap-y-8">
-                <div>
-                    <div class="flex items-center gap-x-3 mb-3">
-                        <div class="w-8 h-8 gold-gradient rounded-2xl flex items-center justify-center">
-                            <i class="fa-solid fa-coins text-white"></i>
-                        </div>
-                        <span class="font-display text-xl font-bold">Harga-Emas Rei</span>
-                    </div>
-                    <p class="text-xs text-gray-500 max-w-xs">Platform informasi harga emas terkini di Indonesia. Data disediakan untuk tujuan edukasi & referensi.</p>
+        <div class="max-w-7xl mx-auto px-6 py-8 text-sm text-gray-500">
+            <div class="flex flex-col md:flex-row justify-between gap-y-4">
+                <div>© 2026 Harga-Emas Rei — Fresh Version</div>
+                <div class="flex gap-x-5">
+                    <a href="#">Tentang</a>
+                    <a href="#">FAQ</a>
+                    <a href="https://pluang.com">Pluang</a>
                 </div>
-                
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-x-8 gap-y-2 text-xs">
-                    <a href="#" class="hover:text-amber-600">Tentang Kami</a>
-                    <a href="#" class="hover:text-amber-600">FAQ</a>
-                    <a href="#" class="hover:text-amber-600">History Harga</a>
-                    <a href="#" class="hover:text-amber-600">Kebijakan Privasi</a>
-                    <a href="https://pluang.com" target="_blank" class="hover:text-amber-600">Pluang</a>
-                    <a href="#" class="hover:text-amber-600">Hubungi Kami</a>
-                </div>
-            </div>
-            
-            <div class="mt-8 pt-6 border-t text-[10px] text-gray-400 flex flex-col md:flex-row justify-between items-center gap-y-1">
-                <div>© 2026 Harga-Emas Rei — Fresh static version</div>
-                <div>Dibuat dengan ❤️ + Tailwind + Chart.js</div>
             </div>
         </div>
     </footer>
 
     <!-- Buy Modal -->
-    <div id="buy-modal" onclick="if (event.target.id === 'buy-modal') hideBuyModal()" class="hidden fixed inset-0 bg-black/70 backdrop-blur-sm z-[100] flex items-center justify-center p-4">
-        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-md rounded-3xl shadow-2xl overflow-hidden">
-            <div class="px-7 pt-7 pb-5 bg-gradient-to-r from-yellow-600 to-amber-600 text-white">
-                <div class="flex justify-between">
+    <div id="buy-modal" onclick="if(event.target.id==='buy-modal') hideBuyModal()" class="hidden fixed inset-0 bg-black/70 z-[100] flex items-center justify-center p-4">
+        <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-md rounded-3xl overflow-hidden">
+            <div class="p-7 bg-gradient-to-r from-yellow-600 to-amber-600 text-white">
+                <div class="flex justify-between items-start">
                     <div>
                         <div class="font-semibold text-xl">Beli Emas Digital</div>
-                        <div class="text-yellow-100 text-sm">via Pluang • Aman & Terpercaya</div>
+                        <div class="text-sm text-yellow-100">via Pluang • Aman & Terpercaya</div>
                     </div>
-                    <button onclick="hideBuyModal()" class="text-white/70 hover:text-white text-3xl leading-none">&times;</button>
+                    <button onclick="hideBuyModal()" class="text-3xl leading-none">&times;</button>
                 </div>
             </div>
-            
             <div class="p-7">
-                <form id="buy-form" onsubmit="submitBuyForm(event)">
+                <form onsubmit="submitBuyForm(event)">
+                    <div class="mb-5">
+                        <label class="text-xs font-semibold text-gray-500">JUMLAH (gram)</label>
+                        <input type="number" id="buy-gram" value="1" class="w-full border rounded-2xl px-5 py-3 text-xl font-semibold mt-1">
+                    </div>
                     <div class="mb-6">
-                        <label class="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wider">JUMLAH EMAS</label>
-                        <div class="flex">
-                            <input type="number" id="buy-gram" value="1" step="0.01" min="0.01" 
-                                   class="flex-1 border border-gray-300 focus:border-amber-500 rounded-l-2xl px-5 py-3.5 text-xl font-semibold">
-                            <div class="bg-gray-100 border border-l-0 px-6 flex items-center rounded-r-2xl font-medium text-sm">gram</div>
-                        </div>
+                        <div class="text-xs font-semibold text-gray-500">HARGA BELI</div>
+                        <div id="modal-price" class="text-3xl font-bold text-emerald-600">Rp2.380.000</div>
                     </div>
-                    
-                    <div class="mb-6">
-                        <label class="block text-xs font-semibold text-gray-500 mb-1.5 tracking-wider">HARGA BELI SAAT INI</label>
-                        <div class="text-4xl font-bold text-emerald-600" id="modal-price">Rp2.380.000</div>
-                        <div class="text-xs text-gray-500">per gram • UBS Gold 99.99%</div>
-                    </div>
-                    
-                    <div class="bg-amber-50 border border-amber-200 rounded-2xl p-5 text-sm mb-6">
-                        <div class="flex justify-between mb-1">
-                            <span class="text-amber-700">Total Estimasi</span>
-                            <span class="font-bold text-amber-800" id="modal-total">Rp2.380.000</span>
-                        </div>
-                        <div class="text-xs text-amber-600">Biaya transaksi 0% • Instant settlement</div>
-                    </div>
-                    
-                    <button type="submit" 
-                            class="w-full py-4 gold-gradient text-white font-semibold rounded-2xl flex items-center justify-center gap-x-2 text-base active:brightness-95 transition-all">
-                        <i class="fa-solid fa-check-circle"></i>
-                        <span>Konfirmasi Pembelian</span>
-                    </button>
-                    
-                    <p class="text-center text-xs text-gray-400 mt-4">Anda akan diarahkan ke aplikasi Pluang</p>
+                    <button class="w-full py-4 gold-gradient text-white font-semibold rounded-2xl">Konfirmasi Pembelian</button>
                 </form>
             </div>
         </div>
     </div>
 
     <script>
-        // Data Emas
         const ubsPrices = [
-            { gram: 0.1, jual: 354500, beli: 238000 },
-            { gram: 0.25, jual: 804800, beli: 595000 },
             { gram: 0.5, jual: 1437500, beli: 1190000 },
             { gram: 1, jual: 2618000, beli: 2380000 },
             { gram: 2, jual: 5164000, beli: 4760000 },
             { gram: 5, jual: 12697000, beli: 11900000 },
-            { gram: 10, jual: 25191000, beli: 23800000 },
+            { gram: 10, jual: 25191000, beli: 23800000 }
         ];
 
         const antamPrices = [
-            { gram: 0.5, jual: 1474500, beli: 1437000 },
             { gram: 1, jual: 2859000, beli: 2739000 },
             { gram: 2, jual: 5358000, beli: 5412000 },
-            { gram: 5, jual: 14293000, beli: 13432000 },
-            { gram: 10, jual: 27590000, beli: 26792000 },
+            { gram: 5, jual: 14293000, beli: 13432000 }
         ];
 
         const pegadaianPrices = [
-            { gram: 0.5, jual: 1437000, beli: 1437000 },
             { gram: 1, jual: 2739000, beli: 2739000 },
             { gram: 2, jual: 5412000, beli: 5412000 },
-            { gram: 5, jual: 13432000, beli: 13432000 },
-            { gram: 10, jual: 26792000, beli: 26792000 },
+            { gram: 5, jual: 13432000, beli: 13432000 }
         ];
 
-        // Data Kurs (dari screenshot)
         const biKursData = [
             { kurs: 'AUD', beli: 12.5238, jual: 12.6532 },
-            { kurs: 'CAD', beli: 12.8123, jual: 12.9438 },
-            { kurs: 'CHF', beli: 22.3807, jual: 22.6141 },
             { kurs: 'EUR', beli: 20.6535, jual: 20.8647 },
-            { kurs: 'GBP', beli: 23.9401, jual: 24.1861 },
-            { kurs: 'JPY', beli: 11.1457, jual: 11.2598 },
-            { kurs: 'MYR', beli: 4.3937, jual: 4.4422 },
-            { kurs: 'SGD', beli: 13.8917, jual: 14.0367 },
-            { kurs: 'USD', beli: 17.8911, jual: 18.0709 }
+            { kurs: 'USD', beli: 17.8911, jual: 18.0709 },
+            { kurs: 'SGD', beli: 13.8917, jual: 14.0367 }
         ];
 
         const mandiriKursData = [
             { kurs: 'AUD', beli: 12602, jual: 12629 },
-            { kurs: 'CAD', beli: 12815, jual: 12844 },
-            { kurs: 'CHF', beli: 22507, jual: 22553 },
             { kurs: 'EUR', beli: 20721, jual: 20764 },
-            { kurs: 'GBP', beli: 24015, jual: 24065 },
-            { kurs: 'JPY', beli: 111.82, jual: 112.07 },
-            { kurs: 'MYR', beli: 4408, jual: 4429 },
-            { kurs: 'SGD', beli: 13944, jual: 13974 },
             { kurs: 'USD', beli: 17920, jual: 17950 }
         ];
 
         const bcaKursData = [
             { kurs: 'AUD', beli: 12.5837, jual: 12.6329 },
-            { kurs: 'CAD', beli: 12.8003, jual: 12.8332 },
-            { kurs: 'CHF', beli: 22.462, jual: 22.5521 },
             { kurs: 'EUR', beli: 20.6942, jual: 20.7556 },
-            { kurs: 'GBP', beli: 23.9914, jual: 24.0581 },
-            { kurs: 'JPY', beli: 11159, jual: 11195 },
-            { kurs: 'MYR', beli: 4.4034, jual: 4.4222 },
-            { kurs: 'SGD', beli: 13.9224, jual: 13.9643 },
             { kurs: 'USD', beli: 17.9, jual: 17.92 }
         ];
 
         function renderKursTables() {
-            const render = (tbodyId, data) => {
-                const body = document.getElementById(tbodyId);
-                body.innerHTML = '';
-                data.forEach(item => {
-                    const row = document.createElement('tr');
-                    row.className = 'hover:bg-amber-50/40';
-                    row.innerHTML = `
-                        <td class="px-5 py-2.5 font-medium">${item.kurs}</td>
-                        <td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${item.beli}</td>
-                        <td class="px-5 py-2.5 text-right text-red-600 font-semibold">${item.jual}</td>
-                    `;
-                    body.appendChild(row);
+            const render = (id, data) => {
+                const el = document.getElementById(id);
+                el.innerHTML = '';
+                data.forEach(d => {
+                    const tr = document.createElement('tr');
+                    tr.innerHTML = `<td class="px-5 py-2.5 font-medium">${d.kurs}</td><td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${d.beli}</td><td class="px-5 py-2.5 text-right text-red-600 font-semibold">${d.jual}</td>`;
+                    el.appendChild(tr);
                 });
             };
             render('bi-kurs-body', biKursData);
             render('mandiri-kurs-body', mandiriKursData);
             render('bca-kurs-body', bcaKursData);
-
-            const now = new Date();
-            document.getElementById('kurs-updated').innerHTML = 
-                `<i class="fa-solid fa-clock mr-1.5"></i>Update: ${now.toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'})} WIB`;
+            
+            document.getElementById('kurs-updated').innerHTML = `<i class="fa-solid fa-clock mr-1"></i> ${new Date().toLocaleTimeString('id-ID', {hour:'2-digit', minute:'2-digit'})} WIB`;
         }
 
-        function renderTable(tbodyId, prices) {
-            const tbody = document.getElementById(tbodyId);
+        function renderTable(id, data) {
+            const tbody = document.getElementById(id);
             tbody.innerHTML = '';
-            prices.forEach(p => {
-                const row = document.createElement('tr');
-                row.className = 'hover:bg-amber-50/30';
-                row.innerHTML = `
-                    <td class="px-7 py-3.5 font-medium">${p.gram} g</td>
-                    <td class="px-7 py-3.5 text-right font-semibold text-red-600">${p.jual.toLocaleString('id-ID')}</td>
-                    <td class="px-7 py-3.5 text-right font-semibold text-emerald-600">${p.beli.toLocaleString('id-ID')}</td>
-                    <td class="px-7 py-3.5">
-                        <button onclick="quickBuy(${p.gram}, ${p.beli})" 
-                                class="text-xs px-4 py-1 bg-emerald-100 hover:bg-emerald-200 text-emerald-700 rounded-full font-semibold transition-colors">
-                            Beli
-                        </button>
-                    </td>
-                `;
-                tbody.appendChild(row);
+            data.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `<td class="px-7 py-3 font-medium">${p.gram} g</td><td class="px-7 py-3 text-right text-red-600 font-semibold">${p.jual.toLocaleString('id-ID')}</td><td class="px-7 py-3 text-right text-emerald-600 font-semibold">${p.beli.toLocaleString('id-ID')}</td><td class="px-7 py-3"><button onclick="quickBuy(${p.gram}, ${p.beli})" class="text-xs px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full font-semibold">Beli</button></td>`;
+                tbody.appendChild(tr);
             });
         }
 
-        function switchTab(tabIndex) {
+        function switchTab(i) {
             document.querySelectorAll('.tab-content').forEach(el => el.classList.add('hidden'));
             document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('tab-active'));
-            document.getElementById('tab-' + tabIndex).classList.remove('hidden');
-            document.querySelectorAll('.tab-btn')[tabIndex].classList.add('tab-active');
+            document.getElementById('tab-' + i).classList.remove('hidden');
+            document.querySelectorAll('.tab-btn')[i].classList.add('tab-active');
         }
 
         function quickBuy(gram, price) {
-            const modal = document.getElementById('buy-modal');
             document.getElementById('buy-gram').value = gram;
-            document.getElementById('modal-price').textContent = 'Rp' + price.toLocaleString('id-ID');
-            document.getElementById('modal-total').textContent = 'Rp' + (gram * price).toLocaleString('id-ID');
-            
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('modal-price').innerText = 'Rp' + price.toLocaleString('id-ID');
+            document.getElementById('buy-modal').classList.remove('hidden');
+            document.getElementById('buy-modal').classList.add('flex');
         }
 
         function showBuyModal() {
-            const modal = document.getElementById('buy-modal');
             document.getElementById('buy-gram').value = 1;
-            document.getElementById('modal-price').textContent = 'Rp2.380.000';
-            document.getElementById('modal-total').textContent = 'Rp2.380.000';
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            document.getElementById('modal-price').innerText = 'Rp2.380.000';
+            document.getElementById('buy-modal').classList.remove('hidden');
+            document.getElementById('buy-modal').classList.add('flex');
         }
 
         function hideBuyModal() {
-            const modal = document.getElementById('buy-modal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
+            const m = document.getElementById('buy-modal');
+            m.classList.remove('flex');
+            m.classList.add('hidden');
         }
 
         function submitBuyForm(e) {
             e.preventDefault();
             const btn = e.target.querySelector('button');
-            const original = btn.innerHTML;
-            btn.innerHTML = `<i class="fa-solid fa-spinner fa-spin mr-2"></i> Memproses...`;
-            btn.disabled = true;
-
+            btn.innerHTML = 'Memproses...';
             setTimeout(() => {
-                btn.innerHTML = `<i class="fa-solid fa-check mr-2"></i> Berhasil!`;
-                btn.classList.add('!bg-emerald-600');
-                setTimeout(() => {
-                    hideBuyModal();
-                    showToast('Pembelian berhasil! Cek aplikasi Pluang Anda.');
-                    btn.innerHTML = original;
-                    btn.disabled = false;
-                    btn.classList.remove('!bg-emerald-600');
-                }, 1200);
-            }, 1600);
+                hideBuyModal();
+                alert('Pembelian berhasil! (Demo)');
+            }, 1200);
         }
 
-        function showToast(msg) {
-            const toast = document.createElement('div');
-            toast.className = `fixed bottom-6 right-6 bg-gray-900 text-white px-6 py-4 rounded-2xl shadow-xl flex items-center gap-x-3 z-[200]`;
-            toast.innerHTML = `<i class="fa-solid fa-check-circle text-emerald-400"></i> <div class="text-sm">${msg}</div>`;
-            document.body.appendChild(toast);
-            setTimeout(() => { toast.style.transition = 'all .3s'; toast.style.opacity = '0'; setTimeout(() => toast.remove(), 200); }, 3800);
-        }
-
-        let goldChart;
+        let chart;
         function initChart() {
-            const ctx = document.getElementById('goldChart');
-            goldChart = new Chart(ctx, {
+            chart = new Chart(document.getElementById('goldChart'), {
                 type: 'line',
                 data: {
                     labels: ['08:00','10:00','12:00','14:00','16:00','18:00','20:00'],
                     datasets: [{
-                        label: 'Harga per Gram',
                         data: [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416],
                         borderColor: '#D4AF37',
-                        backgroundColor: 'rgba(212,175,55,0.1)',
+                        backgroundColor: 'rgba(212,175,55,0.12)',
                         borderWidth: 3,
                         fill: true,
-                        tension: 0.4,
-                        pointRadius: 0
+                        tension: 0.4
                     }]
                 },
-                options: {
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    plugins: { legend: { display: false } },
-                    scales: {
-                        x: { grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8', font: { size: 10 } } },
-                        y: { grid: { color: '#f1f5f9' }, ticks: { color: '#94a3b8', font: { size: 10 }, callback: v => (v/1000000).toFixed(1)+'jt' } }
-                    }
-                }
+                options: { responsive: true, maintainAspectRatio: false, plugins: { legend: { display: false } }, scales: { x: { grid: { color: '#f1f5f9' } }, y: { grid: { color: '#f1f5f9' } } } }
             });
         }
 
-        function updateChartPeriod(p) {
-            // Simple period change demo
-            alert('Fitur update grafik akan dikembangkan lebih lanjut di versi Laravel.');
+        function updateChartPeriod() {
+            alert('Fitur ini akan dikembangkan lebih lanjut.');
         }
 
-        function initMobileMenu() {
-            const btn = document.getElementById('mobile-menu-btn');
-            if (!btn) return;
-            btn.addEventListener('click', () => {
-                const menu = document.createElement('div');
-                menu.className = 'fixed inset-0 bg-black/70 z-[200] flex md:hidden';
-                menu.innerHTML = `
-                    <div class="bg-white w-3/4 p-6" onclick="event.target === this && this.parentElement.remove()">
-                        <div class="font-bold text-xl mb-8">Menu</div>
-                        <div class="flex flex-col gap-y-1 text-base">
-                            <a href="#spot" class="py-3">Emas</a>
-                            <a href="#harga" class="py-3">Harga Emas</a>
-                            <a href="#kurs" class="py-3">Kurs Bank</a>
-                            <a href="#pluang" class="py-3">Investasi</a>
-                        </div>
-                    </div>`;
-                document.body.appendChild(menu);
+        function initMobile() {
+            document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+                const m = document.createElement('div');
+                m.className = 'fixed inset-0 bg-black/70 z-[200] flex md:hidden';
+                m.innerHTML = `<div class="bg-white w-3/4 p-6"><div class="font-bold mb-6">Menu</div><div class="flex flex-col gap-y-2"><a href="#spot" class="py-2">Emas</a><a href="#harga" class="py-2">Harga</a><a href="#kurs" class="py-2">Kurs</a><a href="#pluang" class="py-2">Investasi</a></div></div>`;
+                document.body.appendChild(m);
+                m.onclick = (e) => { if (e.target === m) m.remove(); };
             });
         }
 
-        function initializeApp() {
+        function initialize() {
             renderTable('ubs-table-body', ubsPrices);
             renderTable('antam-table-body', antamPrices);
             renderTable('pegadaian-table-body', pegadaianPrices);
             renderKursTables();
             initChart();
-            initMobileMenu();
-            
-            // Default tab
+            initMobile();
             document.querySelectorAll('.tab-btn')[0].classList.add('tab-active');
-            
-            console.log('%c[Harga-Emas Rei] Fresh version loaded successfully!', 'color:#854D0E');
         }
 
-        window.onload = initializeApp;
+        window.onload = initialize;
     </script>
 </body>
 </html>
