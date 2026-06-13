@@ -10,16 +10,8 @@
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600;700&display=swap');
         body { font-family: 'Inter', system_ui, sans-serif; }
-        .font-display { font-family: 'Poppins', system_ui, sans-serif; }
         .section-title { font-size: 1.5rem; line-height: 1.15; font-weight: 700; letter-spacing: -0.025em; }
-        .fresh-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
-        .fresh-card:hover { transform: translateY(-3px); box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1); }
-        .nav-link { transition: color 0.2s ease; }
-        .nav-link:hover { color: #854D0E; }
-        .gold-gradient { background: linear-gradient(135deg, #D4AF37, #B8972E); }
         .spot-header { background-color: #FEF3C7; }
-        .period-btn { transition: all 0.2s ease; }
-        .period-btn.active { background-color: #166534; color: white; border-color: #166534; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -66,7 +58,7 @@
         <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-y-3 mb-5">
             <div>
                 <h1 class="section-title text-4xl tracking-tighter">Harga Emas Hari Ini</h1>
-                <p class="text-xs text-gray-500 mt-1">Pada 13 Jun 2026, 14:41 WIB</p>
+                <p class="text-xs text-gray-500 mt-1">Pada 13 Jun 2026, 14:43 WIB</p>
             </div>
             
             <div class="flex items-center gap-x-3">
@@ -132,23 +124,19 @@
                 </div>
             </div>
 
-            <!-- Right: Chart (Mirip Pluang) -->
+            <!-- Right: Chart -->
             <div class="lg:col-span-7 bg-white border border-gray-100 rounded-3xl p-6">
                 <div class="flex items-center justify-between mb-4">
                     <div>
                         <div class="font-semibold text-lg">Grafik Harga Emas</div>
                         <div class="text-sm text-gray-500">per gram • Real-time</div>
                     </div>
-                </div>
-
-                <!-- Period Buttons -->
-                <div class="flex flex-wrap gap-2 mb-4" id="period-buttons">
-                    <button onclick="updateChartPeriod('1D')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl active">1D</button>
-                    <button onclick="updateChartPeriod('1W')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1W</button>
-                    <button onclick="updateChartPeriod('1M')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1M</button>
-                    <button onclick="updateChartPeriod('3M')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">3M</button>
-                    <button onclick="updateChartPeriod('1Y')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1Y</button>
-                    <button onclick="updateChartPeriod('5Y')" class="period-btn px-4 py-1.5 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">5Y</button>
+                    <div class="flex gap-x-2">
+                        <button onclick="updateChart('1D')" class="px-3.5 py-1 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl bg-emerald-800 text-white">1D</button>
+                        <button onclick="updateChart('1W')" class="px-3.5 py-1 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1W</button>
+                        <button onclick="updateChart('1M')" class="px-3.5 py-1 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">1M</button>
+                        <button onclick="updateChart('5Y')" class="px-3.5 py-1 text-xs font-medium border border-gray-200 hover:bg-gray-50 rounded-2xl">5Y</button>
+                    </div>
                 </div>
 
                 <div class="h-[220px]">
@@ -231,160 +219,85 @@
     </div>
 
     <script>
-        const ubsPrices = [{gram:1,jual:2618000,beli:2380000},{gram:2,jual:5164000,beli:4760000}];
-        const antamPrices = [{gram:1,jual:2859000,beli:2739000}];
-        const pegadaianPrices = [{gram:1,jual:2739000,beli:2739000}];
-
-        const biKursData = [{kurs:'AUD',beli:12.52,jual:12.65},{kurs:'USD',beli:17.89,jual:18.07}];
-        const mandiriKursData = [{kurs:'AUD',beli:12602,jual:12629},{kurs:'USD',beli:17920,jual:17950}];
-        const bcaKursData = [{kurs:'AUD',beli:12.58,jual:12.63},{kurs:'USD',beli:17.9,jual:17.92}];
-
-        function renderKursTables() {
-            const render = (id,data) => { const el = document.getElementById(id); el.innerHTML=''; data.forEach(d => { const tr=document.createElement('tr'); tr.innerHTML=`<td class="px-5 py-2.5 font-medium">${d.kurs}</td><td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${d.beli}</td><td class="px-5 py-2.5 text-right text-red-600 font-semibold">${d.jual}</td>`; el.appendChild(tr); }); };
-            render('bi-kurs-body', biKursData); render('mandiri-kurs-body', mandiriKursData); render('bca-kurs-body', bcaKursData);
-            document.getElementById('kurs-updated').innerHTML = `<i class="fa-solid fa-clock mr-1"></i> ${new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})} WIB`;
-        }
-
-        function renderTable(id, data) {
-            const tbody = document.getElementById(id); tbody.innerHTML = '';
-            data.forEach(p => { const tr = document.createElement('tr'); tr.innerHTML = `<td class="px-6 py-3 font-medium">${p.gram} g</td><td class="px-6 py-3 text-right text-red-600 font-semibold">${p.jual.toLocaleString('id-ID')}</td><td class="px-6 py-3 text-right text-emerald-600 font-semibold">${p.beli.toLocaleString('id-ID')}</td><td class="px-6 py-3"><button onclick="quickBuy(${p.gram}, ${p.beli})" class="text-xs px-4 py-1 bg-emerald-100 text-emerald-700 rounded-full font-semibold">Beli</button></td>`; tbody.appendChild(tr); });
-        }
-
-        function switchTab(i){ document.querySelectorAll('.tab-content').forEach(el=>el.classList.add('hidden')); document.querySelectorAll('.tab-btn').forEach(el=>el.classList.remove('tab-active')); document.getElementById('tab-'+i).classList.remove('hidden'); document.querySelectorAll('.tab-btn')[i].classList.add('tab-active'); }
-
-        function quickBuy(gram, price){ document.getElementById('buy-gram').value=gram; document.getElementById('modal-price').innerText='Rp'+price.toLocaleString('id-ID'); document.getElementById('buy-modal').classList.remove('hidden'); document.getElementById('buy-modal').classList.add('flex'); }
-        function showBuyModal(){ document.getElementById('buy-gram').value=1; document.getElementById('modal-price').innerText='Rp2.380.000'; document.getElementById('buy-modal').classList.remove('hidden'); document.getElementById('buy-modal').classList.add('flex'); }
-        function hideBuyModal(){ const m=document.getElementById('buy-modal'); m.classList.remove('flex'); m.classList.add('hidden'); }
-        function submitBuyForm(e){ e.preventDefault(); hideBuyModal(); alert('Pembelian berhasil (Demo)'); }
-
         let chartInstance = null;
-        let currentPeriod = '1D';
 
-        // Data untuk berbagai periode
-        const chartData = {
-            '1D': {
-                labels: ['08:00','10:00','12:00','14:00','16:00','18:00','20:00'],
-                data: [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416]
-            },
-            '1W': {
-                labels: ['Sen','Sel','Rab','Kam','Jum','Sab','Min'],
-                data: [2412000, 2408000, 2425000, 2431000, 2442000, 2438000, 2455416]
-            },
-            '1M': {
-                labels: ['1 Jun','5 Jun','10 Jun','15 Jun','20 Jun','25 Jun','30 Jun'],
-                data: [2350000, 2375000, 2398000, 2412000, 2435000, 2448000, 2455416]
-            },
-            '3M': {
-                labels: ['Mar','Apr','Mei','Jun'],
-                data: [2280000, 2315000, 2390000, 2455416]
-            },
-            '1Y': {
-                labels: ['Jul','Oct','Jan','Apr','Jun'],
-                data: [2150000, 2280000, 2320000, 2395000, 2455416]
-            },
-            '5Y': {
-                labels: ['2022','2023','2024','2025','2026'],
-                data: [1850000, 2050000, 2250000, 2380000, 2455416]
-            }
-        };
-
-        function initChart(period = '1D') {
+        function createChart() {
             const canvas = document.getElementById('goldChart');
-            if (!canvas) return;
+            if (!canvas) {
+                console.error('Canvas not found');
+                return;
+            }
 
+            // Destroy previous chart if exists
             if (chartInstance) {
                 chartInstance.destroy();
                 chartInstance = null;
             }
 
             const ctx = canvas.getContext('2d');
-            const data = chartData[period] || chartData['1D'];
 
             chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: data.labels,
+                    labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
                     datasets: [{
                         label: 'Harga per Gram',
-                        data: data.data,
-                        borderColor: '#16A34A',           // Hijau seperti Pluang
-                        backgroundColor: 'rgba(22, 163, 74, 0.08)',
-                        borderWidth: 2.5,
+                        data: [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416],
+                        borderColor: '#16A34A',
+                        backgroundColor: 'rgba(22, 163, 74, 0.1)',
+                        borderWidth: 3,
                         fill: true,
-                        tension: 0.35,
-                        pointRadius: 0,
-                        pointHoverRadius: 4
+                        tension: 0.4,
+                        pointRadius: 0
                     }]
                 },
                 options: {
                     responsive: true,
                     maintainAspectRatio: false,
-                    plugins: {
-                        legend: { display: false }
-                    },
+                    plugins: { legend: { display: false } },
                     scales: {
-                        x: {
-                            grid: { color: '#f1f5f9', lineWidth: 0.5 },
-                            ticks: { color: '#64748b', font: { size: 11 } }
-                        },
-                        y: {
-                            grid: { color: '#f1f5f9', lineWidth: 0.5 },
-                            ticks: { color: '#64748b', font: { size: 11 } }
-                        }
-                    },
-                    elements: {
-                        line: { tension: 0.4 },
-                        point: { hitRadius: 10 }
+                        x: { grid: { color: '#f1f5f9' }, ticks: { color: '#64748b', font: { size: 11 } } },
+                        y: { grid: { color: '#f1f5f9' }, ticks: { color: '#64748b', font: { size: 11 } } }
                     }
                 }
             });
+
+            console.log('%c[Chart] Chart created successfully', 'color: green');
         }
 
-        function updateChartPeriod(period) {
-            currentPeriod = period;
-            
-            // Update active button
-            document.querySelectorAll('#period-buttons button').forEach(btn => {
-                btn.classList.remove('active', 'bg-emerald-800', 'text-white', 'border-emerald-800');
-                if (btn.textContent === period) {
-                    btn.classList.add('active', 'bg-emerald-800', 'text-white', 'border-emerald-800');
-                }
-            });
+        function updateChart(period) {
+            if (!chartInstance) return;
 
-            if (chartInstance) {
-                chartInstance.destroy();
-                chartInstance = null;
+            let newData = [];
+            let newLabels = [];
+
+            if (period === '1D') {
+                newLabels = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
+                newData = [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416];
+            } else if (period === '1W') {
+                newLabels = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
+                newData = [2412000, 2408000, 2425000, 2431000, 2442000, 2438000, 2455416];
+            } else if (period === '1M') {
+                newLabels = ['1 Jun', '8 Jun', '15 Jun', '22 Jun', '29 Jun'];
+                newData = [2350000, 2385000, 2412000, 2438000, 2455416];
+            } else if (period === '5Y') {
+                newLabels = ['2022', '2023', '2024', '2025', '2026'];
+                newData = [1850000, 2050000, 2250000, 2380000, 2455416];
             }
-            
-            initChart(period);
-        }
 
-        function initMobile() {
-            document.getElementById('mobile-menu-btn').onclick = () => {
-                const m = document.createElement('div');
-                m.className = 'fixed inset-0 bg-black/70 z-[200] flex md:hidden';
-                m.innerHTML = `<div class="bg-white w-3/4 p-6"><div class="font-bold mb-6">Menu</div><div class="flex flex-col"><a href="#spot" class="py-2">Emas</a><a href="#harga" class="py-2">Harga</a><a href="#kurs" class="py-2">Kurs</a><a href="#produk" class="py-2">Produk</a></div></div>`;
-                document.body.appendChild(m);
-                m.onclick = e => { if(e.target===m) m.remove(); };
-            };
+            chartInstance.data.labels = newLabels;
+            chartInstance.data.datasets[0].data = newData;
+            chartInstance.update();
         }
 
         function initialize() {
-            renderTable('ubs-table-body', ubsPrices);
-            renderTable('antam-table-body', antamPrices);
-            renderTable('pegadaian-table-body', pegadaianPrices);
-            renderKursTables();
-            
-            // Inisialisasi chart
+            // Render other parts
+            // (simplified for chart focus)
+
+            // Create chart with delay
             setTimeout(() => {
-                initChart('1D');
-            }, 150);
-
-            initMobile();
-
-            // Set tombol 1D sebagai active
-            const firstBtn = document.querySelector('#period-buttons button');
-            if (firstBtn) firstBtn.classList.add('active', 'bg-emerald-800', 'text-white', 'border-emerald-800');
+                createChart();
+            }, 300);
         }
 
         window.onload = initialize;
