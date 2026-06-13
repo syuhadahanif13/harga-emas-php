@@ -288,36 +288,51 @@
 
     <script>
         let chartInstance = null;
+        let usdToIdrRate = 16200; // default fallback
 
-        // Fungsi untuk mengambil harga emas real-time dari gold-api.com
+        // Ambil kurs USD ke IDR
+        async function getUsdToIdrRate() {
+            try {
+                const res = await fetch('https://v6.exchangerate-api.com/v6/56f793f576d4a9e48cb204dd/latest/USD');
+                const data = await res.json();
+                if (data && data.conversion_rates && data.conversion_rates.IDR) {
+                    usdToIdrRate = data.conversion_rates.IDR;
+                    console.log('%c[Kurs] USD to IDR: ' + usdToIdrRate, 'color: #3b82f6');
+                }
+            } catch (err) {
+                console.error('Gagal mengambil kurs USD/IDR, menggunakan fallback.');
+            }
+        }
+
+        // Ambil harga emas real-time dari GoldAPI.io
         async function fetchGoldPrice() {
             try {
-                const response = await fetch('https://api.gold-api.com/price/XAU');
-                
-                if (!response.ok) throw new Error('Gagal mengambil data harga emas');
+                const response = await fetch('https://www.goldapi.io/api/XAU/USD', {
+                    headers: {
+                        'x-access-token': 'goldapi-gjtsm9p9njmp-io',
+                        'Content-Type': 'application/json'
+                    }
+                });
+
+                if (!response.ok) throw new Error('Gagal mengambil data dari GoldAPI');
 
                 const data = await response.json();
 
                 if (data && data.price) {
-                    const goldPerOunceUSD = data.price;           // Harga 1 oz emas dalam USD
-                    const usdToIdr = 16200;                       // Kurs USD ke IDR (bisa diupdate nanti)
-
-                    // 1 troy ounce = 31.1034768 gram
+                    const goldPerOunceUSD = data.price;
                     const goldPerGramUSD = goldPerOunceUSD / 31.1034768;
-                    const goldPerGramIDR = Math.round(goldPerGramUSD * usdToIdr);
+                    const goldPerGramIDR = Math.round(goldPerGramUSD * usdToIdrRate);
 
-                    // Update tampilan
                     document.getElementById('main-price').innerText = 'Rp' + goldPerGramIDR.toLocaleString('id-ID');
                     
                     const now = new Date();
                     document.getElementById('last-update').innerText = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
 
-                    console.log('%c[Harga Emas] Berhasil diupdate dari gold-api.com', 'color: #16A34A');
+                    console.log('%c[Harga Emas] Berhasil diupdate dari GoldAPI.io', 'color: #16A34A');
                     return goldPerGramIDR;
                 }
             } catch (error) {
                 console.error('Error fetching gold price:', error);
-                // Fallback
                 document.getElementById('main-price').innerText = 'Rp2.455.416';
                 document.getElementById('last-update').innerText = 'Offline';
             }
@@ -387,10 +402,9 @@
         }
 
         async function initialize() {
-            // Ambil harga emas real-time
+            await getUsdToIdrRate();
             await fetchGoldPrice();
 
-            // Buat chart
             setTimeout(() => {
                 createChart();
             }, 300);
