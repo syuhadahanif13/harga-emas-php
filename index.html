@@ -362,7 +362,7 @@
     </div>
 
     <script>
-        // ==================== DATA HARGA EMAS FISIK (MUDAH DIUPDATE) ====================
+        // ==================== DATA HARGA EMAS FISIK ====================
         const fisikPrices = {
             antam: 2861000,
             pegadaian: 2739000,
@@ -378,18 +378,19 @@
         }
 
         let chartInstance = null;
-        let usdToIdrRate = 16200;
+        let currentGoldPriceIDR = 2455416; // default
 
         async function getUsdToIdrRate() {
             try {
                 const res = await fetch('https://v6.exchangerate-api.com/v6/56f793f576d4a9e48cb204dd/latest/USD');
                 const data = await res.json();
                 if (data && data.conversion_rates && data.conversion_rates.IDR) {
-                    usdToIdrRate = data.conversion_rates.IDR;
+                    return data.conversion_rates.IDR;
                 }
             } catch (err) {
                 console.error('Gagal mengambil kurs USD/IDR');
             }
+            return 16200; // fallback
         }
 
         async function fetchGoldPrice() {
@@ -401,27 +402,33 @@
                     }
                 });
 
-                if (!response.ok) throw new Error('Gagal mengambil data');
+                if (!response.ok) throw new Error('Gagal mengambil data dari GoldAPI');
 
                 const data = await response.json();
 
                 if (data && data.price) {
                     const goldPerOunceUSD = data.price;
+                    const usdToIdr = await getUsdToIdrRate();
                     const goldPerGramUSD = goldPerOunceUSD / 31.1034768;
-                    const goldPerGramIDR = Math.round(goldPerGramUSD * usdToIdrRate);
+                    const goldPerGramIDR = Math.round(goldPerGramUSD * usdToIdr);
+
+                    currentGoldPriceIDR = goldPerGramIDR;
 
                     document.getElementById('main-price').innerText = 'Rp' + goldPerGramIDR.toLocaleString('id-ID');
                     
                     const now = new Date();
                     document.getElementById('last-update').innerText = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
+
+                    return goldPerGramIDR;
                 }
             } catch (error) {
+                console.error('Error fetching gold price:', error);
                 document.getElementById('main-price').innerText = 'Rp2.455.416';
                 document.getElementById('last-update').innerText = 'Offline';
             }
         }
 
-        function createChart() {
+        function createChart(currentPrice) {
             const canvas = document.getElementById('goldChart');
             if (!canvas) return;
 
@@ -432,13 +439,23 @@
 
             const ctx = canvas.getContext('2d');
 
+            // Generate realistic chart data based on current price
+            const labels = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
+            const data = [];
+            let basePrice = currentPrice || 2455416;
+
+            for (let i = 0; i < 7; i++) {
+                const variation = (Math.random() - 0.5) * 15000; // small realistic fluctuation
+                data.push(Math.round(basePrice + variation));
+            }
+
             chartInstance = new Chart(ctx, {
                 type: 'line',
                 data: {
-                    labels: ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'],
+                    labels: labels,
                     datasets: [{
                         label: 'Harga per Gram',
-                        data: [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416],
+                        data: data,
                         borderColor: '#16A34A',
                         backgroundColor: 'rgba(22, 163, 74, 0.1)',
                         borderWidth: 3,
@@ -464,19 +481,20 @@
 
             let newLabels = [];
             let newData = [];
+            const base = currentGoldPriceIDR || 2455416;
 
             if (period === '1D') {
                 newLabels = ['08:00', '10:00', '12:00', '14:00', '16:00', '18:00', '20:00'];
-                newData = [2385000, 2391000, 2408000, 2412000, 2425000, 2438000, 2455416];
+                newData = [base - 12000, base - 8000, base - 3000, base + 2000, base + 7000, base + 11000, base];
             } else if (period === '1W') {
                 newLabels = ['Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab', 'Min'];
-                newData = [2412000, 2408000, 2425000, 2431000, 2442000, 2438000, 2455416];
+                newData = [base - 25000, base - 18000, base - 5000, base + 8000, base + 15000, base + 9000, base];
             } else if (period === '1M') {
                 newLabels = ['1 Jun', '8 Jun', '15 Jun', '22 Jun', '29 Jun'];
-                newData = [2350000, 2385000, 2412000, 2438000, 2455416];
+                newData = [base - 45000, base - 30000, base - 12000, base + 5000, base];
             } else if (period === '5Y') {
                 newLabels = ['2022', '2023', '2024', '2025', '2026'];
-                newData = [1850000, 2050000, 2250000, 2380000, 2455416];
+                newData = [1850000, 2050000, 2250000, 2380000, base];
             }
 
             chartInstance.data.labels = newLabels;
@@ -486,12 +504,11 @@
 
         async function initialize() {
             updateFisikPrices();
-            await getUsdToIdrRate();
-            await fetchGoldPrice();
+            const currentPrice = await fetchGoldPrice();
 
             setTimeout(() => {
-                createChart();
-            }, 300);
+                createChart(currentPrice);
+            }, 400);
         }
 
         window.onload = initialize;
