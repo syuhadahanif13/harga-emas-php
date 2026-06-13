@@ -246,19 +246,73 @@
 
     <!-- Kurs -->
     <div id="kurs" class="max-w-7xl mx-auto px-6 pt-8">
-        <div class="flex justify-between mb-4"><h2 class="section-title">Kurs Valuta Asing</h2><span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border rounded-full"></span></div>
+        <div class="flex justify-between mb-4">
+            <h2 class="section-title">Kurs Valuta Asing</h2>
+            <span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border rounded-full"></span>
+        </div>
+
         <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
-            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center text-white text-sm font-bold">BI</div><div><div class="font-bold">Bank Indonesia</div><div class="text-xs text-gray-500">Sumber Resmi</div></div></div>
-                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bi-kurs-body" class="divide-y"></tbody></table>
+            <!-- Bank Indonesia -->
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]">
+                    <div class="w-9 h-9 bg-blue-700 rounded-xl flex items-center justify-center text-white text-sm font-bold">BI</div>
+                    <div>
+                        <div class="font-bold">Bank Indonesia</div>
+                        <div class="text-xs text-gray-500">Sumber Resmi</div>
+                    </div>
+                </div>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-5 py-3 text-left">Kurs</th>
+                            <th class="px-5 py-3 text-right">Beli</th>
+                            <th class="px-5 py-3 text-right">Jual</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bi-kurs-body" class="divide-y"></tbody>
+                </table>
             </div>
-            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white text-sm font-bold">Mandiri</div><div><div class="font-bold">Bank Mandiri</div><div class="text-xs text-gray-500">Sumber Mandiri</div></div></div>
-                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="mandiri-kurs-body" class="divide-y"></tbody></table>
+
+            <!-- Bank Mandiri -->
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]">
+                    <div class="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white text-sm font-bold">Mandiri</div>
+                    <div>
+                        <div class="font-bold">Bank Mandiri</div>
+                        <div class="text-xs text-gray-500">Sumber Mandiri</div>
+                    </div>
+                </div>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-5 py-3 text-left">Kurs</th>
+                            <th class="px-5 py-3 text-right">Beli</th>
+                            <th class="px-5 py-3 text-right">Jual</th>
+                        </tr>
+                    </thead>
+                    <tbody id="mandiri-kurs-body" class="divide-y"></tbody>
+                </table>
             </div>
-            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden fresh-card">
-                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]"><div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center"><span class="text-white text-[10px] font-bold">BCA</span></div><div><div class="font-bold">Bank Central Asia</div><div class="text-xs text-gray-500">Sumber BCA</div></div></div>
-                <table class="w-full text-sm"><thead class="bg-gray-50"><tr><th class="px-5 py-3 text-left">Kurs</th><th class="px-5 py-3 text-right">Beli</th><th class="px-5 py-3 text-right">Jual</th></tr></thead><tbody id="bca-kurs-body" class="divide-y"></tbody></table>
+
+            <!-- BCA -->
+            <div class="bg-white border border-gray-100 rounded-3xl overflow-hidden">
+                <div class="px-5 py-4 flex items-center gap-x-3 bg-[#F8F1E3]">
+                    <div class="w-9 h-9 bg-blue-600 rounded-xl flex items-center justify-center"><span class="text-white text-[10px] font-bold">BCA</span></div>
+                    <div>
+                        <div class="font-bold">Bank Central Asia</div>
+                        <div class="text-xs text-gray-500">Sumber BCA</div>
+                    </div>
+                </div>
+                <table class="w-full text-sm">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-5 py-3 text-left">Kurs</th>
+                            <th class="px-5 py-3 text-right">Beli</th>
+                            <th class="px-5 py-3 text-right">Jual</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bca-kurs-body" class="divide-y"></tbody>
+                </table>
             </div>
         </div>
     </div>
@@ -359,6 +413,70 @@
     </div>
 
     <script>
+        // ==================== DATA KURS ====================
+        const biData = [
+            { mataUang: "USD", beli: 16235, jual: 16285 },
+            { mataUang: "EUR", beli: 17580, jual: 17680 },
+            { mataUang: "SGD", beli: 12150, jual: 12210 },
+            { mataUang: "JPY", beli: 107, jual: 108 }
+        ];
+
+        const mandiriData = [
+            { mataUang: "USD", beli: 16220, jual: 16300 },
+            { mataUang: "EUR", beli: 17550, jual: 17700 },
+            { mataUang: "SGD", beli: 12130, jual: 12230 },
+            { mataUang: "JPY", beli: 106, jual: 109 }
+        ];
+
+        const bcaData = [
+            { mataUang: "USD", beli: 16210, jual: 16290 },
+            { mataUang: "EUR", beli: 17540, jual: 17690 },
+            { mataUang: "SGD", beli: 12120, jual: 12220 },
+            { mataUang: "JPY", beli: 106, jual: 108 }
+        ];
+
+        function renderKurs() {
+            // Bank Indonesia
+            const biBody = document.getElementById('bi-kurs-body');
+            biBody.innerHTML = '';
+            biData.forEach(item => {
+                const row = `<tr>
+                    <td class="px-5 py-2.5 font-medium">${item.mataUang}</td>
+                    <td class="px-5 py-2.5 text-right">${item.beli.toLocaleString('id-ID')}</td>
+                    <td class="px-5 py-2.5 text-right">${item.jual.toLocaleString('id-ID')}</td>
+                </tr>`;
+                biBody.innerHTML += row;
+            });
+
+            // Bank Mandiri
+            const mandiriBody = document.getElementById('mandiri-kurs-body');
+            mandiriBody.innerHTML = '';
+            mandiriData.forEach(item => {
+                const row = `<tr>
+                    <td class="px-5 py-2.5 font-medium">${item.mataUang}</td>
+                    <td class="px-5 py-2.5 text-right">${item.beli.toLocaleString('id-ID')}</td>
+                    <td class="px-5 py-2.5 text-right">${item.jual.toLocaleString('id-ID')}</td>
+                </tr>`;
+                mandiriBody.innerHTML += row;
+            });
+
+            // BCA
+            const bcaBody = document.getElementById('bca-kurs-body');
+            bcaBody.innerHTML = '';
+            bcaData.forEach(item => {
+                const row = `<tr>
+                    <td class="px-5 py-2.5 font-medium">${item.mataUang}</td>
+                    <td class="px-5 py-2.5 text-right">${item.beli.toLocaleString('id-ID')}</td>
+                    <td class="px-5 py-2.5 text-right">${item.jual.toLocaleString('id-ID')}</td>
+                </tr>`;
+                bcaBody.innerHTML += row;
+            });
+
+            // Update waktu
+            const now = new Date();
+            document.getElementById('kurs-updated').innerText = 'Update: ' + now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+        }
+
         // ==================== DATA HARGA EMAS FISIK ====================
         const fisikPrices = {
             antam: 2861000,
@@ -509,6 +627,7 @@
 
         async function initialize() {
             updateFisikPrices();
+            renderKurs();
             const currentPrice = await fetchGoldPrice();
 
             setTimeout(() => {
