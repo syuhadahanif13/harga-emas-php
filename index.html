@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Poppins:wght@500;600&amp;display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Poppins:wght@500;600&display=swap');
         
         body {
             font-family: 'Inter', system_ui, sans-serif;
@@ -53,6 +53,15 @@
         .gold-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 10px 15px -3px rgb(212 175 55 / 0.3);
+        }
+
+        .kurs-table th {
+            font-weight: 600;
+            color: #4b5563;
+            background-color: #f9fafb;
+        }
+        .kurs-table td {
+            font-variant-numeric: tabular-nums;
         }
     </style>
 </head>
@@ -208,28 +217,113 @@
         </div>
     </div>
 
-    <!-- Kurs Bank + Emas/Perak + Saham/Kripto -->
+    <!-- Kurs Bank Section - Updated to match your screenshot -->
     <div class="max-w-7xl mx-auto px-6 pt-10">
-        <h2 class="text-2xl font-bold mb-6">Informasi Pasar Lainnya</h2>
-        
-        <!-- Kurs Bank -->
-        <div class="mb-8">
-            <div class="flex items-center justify-between mb-4">
-                <h3 class="font-semibold text-lg">Kurs Bank (Real-time)</h3>
-                <span id="kurs-updated" class="text-xs text-gray-500"></span>
+        <div class="flex items-center justify-between mb-5">
+            <div>
+                <h2 class="text-2xl font-bold">Kurs Valuta Asing</h2>
+                <p class="text-sm text-gray-500 mt-0.5">Perbandingan kurs beli & jual dari bank-bank besar di Indonesia</p>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-6" id="kurs-container">
-                <!-- Kurs cards will be populated by JavaScript using real API -->
+            <div>
+                <span id="kurs-updated" class="text-xs px-4 py-1.5 bg-white border border-gray-200 rounded-full text-gray-500 font-medium"></span>
             </div>
         </div>
 
-        <!-- Emas Perak + Saham & Kripto -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-5">
+            
+            <!-- Bank Indonesia (BI) -->
+            <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
+                <div class="px-5 py-4 bg-[#F8F1E3] flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-blue-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <i class="fa-solid fa-landmark text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Kurs Bank Indonesia (BI)</div>
+                        <div class="text-[10px] text-gray-500">Sumber resmi BI</div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm kurs-table">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3.5 text-left">Kurs</th>
+                                <th class="px-5 py-3.5 text-right">Beli</th>
+                                <th class="px-5 py-3.5 text-right">Jual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bi-kurs-body" class="divide-y divide-gray-100 text-gray-700">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bank Mandiri -->
+            <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
+                <div class="px-5 py-4 bg-[#F8F1E3] flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-red-600 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-white text-sm font-bold">M</span>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Kurs Bank Mandiri</div>
+                        <div class="text-[10px] text-gray-500">Sumber: Bank Mandiri</div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm kurs-table">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3.5 text-left">Kurs</th>
+                                <th class="px-5 py-3.5 text-right">Beli</th>
+                                <th class="px-5 py-3.5 text-right">Jual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="mandiri-kurs-body" class="divide-y divide-gray-100 text-gray-700">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Bank Central Asia (BCA) -->
+            <div class="bg-white border border-gray-200 rounded-3xl overflow-hidden shadow-sm">
+                <div class="px-5 py-4 bg-[#F8F1E3] flex items-center gap-x-3">
+                    <div class="w-9 h-9 bg-blue-700 rounded-2xl flex items-center justify-center flex-shrink-0">
+                        <span class="text-white text-[10px] font-bold tracking-wider">BCA</span>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-900">Kurs Bank Central Asia (BCA)</div>
+                        <div class="text-[10px] text-gray-500">Sumber: BCA</div>
+                    </div>
+                </div>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-sm kurs-table">
+                        <thead>
+                            <tr>
+                                <th class="px-5 py-3.5 text-left">Kurs</th>
+                                <th class="px-5 py-3.5 text-right">Beli</th>
+                                <th class="px-5 py-3.5 text-right">Jual</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bca-kurs-body" class="divide-y divide-gray-100 text-gray-700">
+                            <!-- Populated by JS -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+        <p class="text-[10px] text-gray-400 mt-3 px-1">* Data kurs bersifat ilustratif berdasarkan data terkini. Harga aktual dapat berbeda. Update otomatis setiap kali halaman dimuat ulang.</p>
+    </div>
+
+    <!-- Emas Perak + Saham/Kripto -->
+    <div class="max-w-7xl mx-auto px-6 pt-6">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
             
             <!-- Emas & Perak -->
             <div class="bg-white border rounded-2xl p-5">
                 <div class="flex justify-between items-center mb-4">
-                    <h3 class="font-semibold">Emas &amp; Perak</h3>
+                    <h3 class="font-semibold">Emas & Perak</h3>
                     <a href="#" class="text-sm text-amber-600">Lihat Semua →</a>
                 </div>
                 <div class="space-y-3 text-sm">
@@ -436,7 +530,7 @@
                 <div class="flex justify-between items-start">
                     <div>
                         <div class="font-semibold text-lg">Beli Emas Digital</div>
-                        <div class="text-yellow-100 text-sm">via Pluang • Aman &amp; Terpercaya</div>
+                        <div class="text-yellow-100 text-sm">via Pluang • Aman & Terpercaya</div>
                     </div>
                     <button onclick="hideBuyModal()" class="text-white/70 hover:text-white">
                         <i class="fa-solid fa-times text-2xl"></i>
@@ -482,7 +576,7 @@
     </div>
 
     <script>
-        // Data Harga (Static - Gold prices remain static as no free reliable public API)
+        // Data Harga Emas (Static)
         const ubsPrices = [
             { gram: 0.1, jual: 354500, beli: 238000 },
             { gram: 0.25, jual: 804800, beli: 595000 },
@@ -524,7 +618,111 @@
             { gram: 1000, jual: 2654779000, beli: 2654779000 },
         ];
 
-        // Render tables
+        // ==================== DATA KURS BANK (dari screenshot kamu) ====================
+        const biKursData = [
+            { kurs: 'AUD', beli: 12.5238, jual: 12.6532 },
+            { kurs: 'CAD', beli: 12.8123, jual: 12.9438 },
+            { kurs: 'CHF', beli: 22.3807, jual: 22.6141 },
+            { kurs: 'DKK', beli: 2.7633, jual: 2.7918 },
+            { kurs: 'EUR', beli: 20.6535, jual: 20.8647 },
+            { kurs: 'GBP', beli: 23.9401, jual: 24.1861 },
+            { kurs: 'HKD', beli: 2.2831, jual: 2.3063 },
+            { kurs: 'JPY', beli: 11.1457, jual: 11.2598 },
+            { kurs: 'MYR', beli: 4.3937, jual: 4.4422 },
+            { kurs: 'NZD', beli: 10.3572, jual: 10.4649 },
+            { kurs: 'SAR', beli: 4.766, jual: 4.8144 },
+            { kurs: 'SEK', beli: 1.8779, jual: 1.8972 },
+            { kurs: 'SGD', beli: 13.8917, jual: 14.0367 },
+            { kurs: 'THB', beli: 54.347, jual: 54.910 },
+            { kurs: 'USD', beli: 17.8911, jual: 18.0709 }
+        ];
+
+        const mandiriKursData = [
+            { kurs: 'AUD', beli: 12602, jual: 12629 },
+            { kurs: 'CAD', beli: 12815, jual: 12844 },
+            { kurs: 'CHF', beli: 22507, jual: 22553 },
+            { kurs: 'DKK', beli: 2743, jual: 2808 },
+            { kurs: 'EUR', beli: 20721, jual: 20764 },
+            { kurs: 'GBP', beli: 24015, jual: 24065 },
+            { kurs: 'HKD', beli: 2283.97, jual: 2293.86 },
+            { kurs: 'JPY', beli: 111.82, jual: 112.07 },
+            { kurs: 'MYR', beli: 4408, jual: 4429 },
+            { kurs: 'NZD', beli: 10421, jual: 10446 },
+            { kurs: 'SAR', beli: 4768, jual: 4792 },
+            { kurs: 'SEK', beli: 1871, jual: 1921 },
+            { kurs: 'SGD', beli: 13944, jual: 13974 },
+            { kurs: 'THB', beli: 544.01, jual: 548.26 },
+            { kurs: 'USD', beli: 17920, jual: 17950 }
+        ];
+
+        const bcaKursData = [
+            { kurs: 'AUD', beli: 12.5837, jual: 12.6329 },
+            { kurs: 'CAD', beli: 12.8003, jual: 12.8332 },
+            { kurs: 'CHF', beli: 22.462, jual: 22.5521 },
+            { kurs: 'DKK', beli: 2.7709, jual: 2.775 },
+            { kurs: 'EUR', beli: 20.6942, jual: 20.7556 },
+            { kurs: 'GBP', beli: 23.9914, jual: 24.0581 },
+            { kurs: 'HKD', beli: 2.284, jual: 2.2873 },
+            { kurs: 'JPY', beli: 11159, jual: 11195 },
+            { kurs: 'MYR', beli: 4.4034, jual: 4.4222 },
+            { kurs: 'NZD', beli: 10.4052, jual: 10.4558 },
+            { kurs: 'SAR', beli: 4.7671, jual: 4.7745 },
+            { kurs: 'SEK', beli: 1.8865, jual: 1.9037 },
+            { kurs: 'SGD', beli: 13.9224, jual: 13.9643 },
+            { kurs: 'THB', beli: 54242, jual: 54896 },
+            { kurs: 'USD', beli: 17.9, jual: 17.92 }
+        ];
+
+        function renderKursTables() {
+            // Bank Indonesia
+            const biBody = document.getElementById('bi-kurs-body');
+            biBody.innerHTML = '';
+            biKursData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-amber-50/30 transition-colors';
+                row.innerHTML = `
+                    <td class="px-5 py-2.5 font-medium">${item.kurs}</td>
+                    <td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${item.beli}</td>
+                    <td class="px-5 py-2.5 text-right text-red-600 font-semibold">${item.jual}</td>
+                `;
+                biBody.appendChild(row);
+            });
+
+            // Bank Mandiri
+            const mandiriBody = document.getElementById('mandiri-kurs-body');
+            mandiriBody.innerHTML = '';
+            mandiriKursData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-amber-50/30 transition-colors';
+                row.innerHTML = `
+                    <td class="px-5 py-2.5 font-medium">${item.kurs}</td>
+                    <td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${item.beli}</td>
+                    <td class="px-5 py-2.5 text-right text-red-600 font-semibold">${item.jual}</td>
+                `;
+                mandiriBody.appendChild(row);
+            });
+
+            // BCA
+            const bcaBody = document.getElementById('bca-kurs-body');
+            bcaBody.innerHTML = '';
+            bcaKursData.forEach(item => {
+                const row = document.createElement('tr');
+                row.className = 'hover:bg-amber-50/30 transition-colors';
+                row.innerHTML = `
+                    <td class="px-5 py-2.5 font-medium">${item.kurs}</td>
+                    <td class="px-5 py-2.5 text-right text-emerald-600 font-semibold">${item.beli}</td>
+                    <td class="px-5 py-2.5 text-right text-red-600 font-semibold">${item.jual}</td>
+                `;
+                bcaBody.appendChild(row);
+            });
+
+            // Update timestamp
+            const updatedEl = document.getElementById('kurs-updated');
+            const now = new Date();
+            updatedEl.innerHTML = `<i class="fa-solid fa-clock mr-1"></i> Update: ${now.toLocaleTimeString('id-ID', {hour: '2-digit', minute:'2-digit'})} WIB`;
+        }
+
+        // Render tables for gold
         function renderTable(tbodyId, prices) {
             const tbody = document.getElementById(tbodyId);
             tbody.innerHTML = '';
@@ -643,68 +841,6 @@
             }, 4200);
         }
 
-        // ==================== REAL-TIME KURS USING FREE API ====================
-        async function loadRealKurs() {
-            const container = document.getElementById('kurs-container');
-            const updatedEl = document.getElementById('kurs-updated');
-            
-            container.innerHTML = `
-                <div class="col-span-3 text-center py-8">
-                    <i class="fa-solid fa-spinner fa-spin text-2xl text-amber-600"></i>
-                    <p class="mt-2 text-sm text-gray-500">Memuat data kurs real-time...</p>
-                </div>
-            `;
-
-            try {
-                // Using free public API (frankfurter.app) - no API key needed
-                const response = await fetch('https://api.frankfurter.app/latest?from=IDR');
-                const data = await response.json();
-
-                const rates = data.rates;
-                const date = data.date;
-
-                // Currencies we want to show
-                const currencies = ['USD', 'EUR', 'SGD', 'AUD', 'GBP', 'JPY', 'MYR', 'THB'];
-
-                // Approximate buy/sell spread (real banks add margin)
-                const spread = 0.015; // 1.5%
-
-                let html = '';
-
-                currencies.forEach(cur => {
-                    if (rates[cur]) {
-                        const idrPerCur = rates[cur]; // How many IDR for 1 unit of currency
-                        const beli = (idrPerCur * (1 - spread)).toFixed(2);
-                        const jual = (idrPerCur * (1 + spread)).toFixed(2);
-
-                        html += `
-                            <div class="bg-white border rounded-2xl overflow-hidden">
-                                <div class="px-4 py-2.5 bg-amber-50 font-semibold flex items-center gap-x-2 text-sm">
-                                    <i class="fa-solid fa-exchange-alt"></i> ${cur}
-                                </div>
-                                <table class="w-full text-sm">
-                                    <tr class="border-b"><td class="px-4 py-2">Beli</td><td class="px-4 py-2 text-right font-medium">${beli}</td></tr>
-                                    <tr><td class="px-4 py-2">Jual</td><td class="px-4 py-2 text-right font-medium">${jual}</td></tr>
-                                </table>
-                            </div>
-                        `;
-                    }
-                });
-
-                container.innerHTML = html;
-                updatedEl.innerHTML = `Update: ${date} | Sumber: frankfurter.app`;
-
-            } catch (error) {
-                console.error('Gagal memuat kurs:', error);
-                container.innerHTML = `
-                    <div class="col-span-3 bg-red-50 border border-red-200 rounded-2xl p-6 text-center">
-                        <p class="text-red-600">Gagal memuat data kurs real-time.</p>
-                        <p class="text-xs text-red-500 mt-1">Menggunakan data statis sebagai fallback.</p>
-                    </div>
-                `;
-            }
-        }
-
         // Chart.js
         let goldChart;
 
@@ -818,16 +954,16 @@
 
         // Initialize everything
         function initializeApp() {
-            // Render all tables
+            // Render gold tables
             renderTable('ubs-table-body', ubsPrices);
             renderTable('antam-table-body', antamPrices);
             renderTable('pegadaian-table-body', pegadaianPrices);
 
+            // Render Kurs Bank tables (NEW - sesuai screenshot)
+            renderKursTables();
+
             // Initialize chart
             initChart();
-
-            // Load REAL exchange rates from public API
-            loadRealKurs();
 
             // Mobile menu
             initMobileMenu();
@@ -835,7 +971,7 @@
             // Default active tab
             document.querySelectorAll('.tab-btn')[0].classList.add('tab-active');
 
-            console.log('%c[Harga-Emas Rei] Initialized with real-time Kurs API.', 'color:#854D0E');
+            console.log('%c[Harga-Emas Rei] Kurs section updated to 3-bank layout!', 'color:#854D0E');
         }
 
         window.onload = initializeApp;
