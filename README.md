@@ -1,75 +1,46 @@
-# Harga-Emas.org Clone
+# Harga-Emas.org Clone (Static Version)
 
-Website clone sederhana dari [harga-emas.org](https://harga-emas.org) dibuat dengan **pure PHP** + **Tailwind CSS** (Play CDN) + **Chart.js**.
+**Versi static HTML** dari website harga-emas.org yang sudah dioptimalkan untuk deployment di **Vercel**.
 
 ## ✨ Fitur
 
-- **Navbar responsif** dengan menu smooth scroll + mobile hamburger
-- **Spot Harga** USD & IDR real-time style cards
-- **Tabel Harga Emas Interaktif**:
-  - Tabs: UBS Gold 99.99% • Antam • Pegadaian
-  - Harga Jual & Beli per gram (data akurat dari screenshot Juni 2026)
-  - Tombol "Beli" cepat di setiap baris
-- **Grafik Harga** interaktif dengan Chart.js (1D, 1W, 1M, 3M, 1Y)
-- **Modal Pembelian** simulasi lengkap dengan perhitungan total otomatis
-- **Promo Pluang** section yang menarik
-- **Fully responsive** & modern UI dengan gold accent color
-- **Pure PHP** – data harga mudah di-update di bagian atas file `index.php`
-- Tidak perlu database, composer, atau framework
+- 100% Static (HTML + Tailwind CSS + Vanilla JS + Chart.js)
+- Tidak ada PHP lagi → cocok untuk Vercel, Netlify, GitHub Pages
+- Tabel harga interaktif (UBS, Antam, Pegadaian)
+- Tabs + Quick Buy button
+- Modal pembelian dengan perhitungan otomatis
+- Grafik harga interaktif (1D/1W/1M/3M/1Y)
+- Fully responsive & modern UI
+- Dynamic "last updated" time (JavaScript)
 
-## 🚀 Cara Menjalankan
+## 🚀 Cara Deploy ke Vercel (Super Mudah)
 
-### Lokal (paling mudah)
+1. Buka [vercel.com](https://vercel.com) dan login
+2. Klik **Add New Project**
+3. Pilih **Import Git Repository**
+4. Pilih repo `syuhadahanif13/harga-emas-php`
+5. Klik **Deploy**
 
-```bash
-# Masuk ke folder project
-cd harga-emas-php
+Selesai! Website akan otomatis live di `https://harga-emas-php.vercel.app`
 
-# Jalankan built-in PHP server
-php -S localhost:8000
-```
+## 📁 Struktur File
 
-Buka browser: **http://localhost:8000**
+- `index.html` — File utama (static version)
+- `index.php` — Backup versi PHP lama (bisa diabaikan)
 
-### Deploy ke Hosting PHP Biasa
+## 🔧 Cara Update Harga
 
-Upload seluruh folder ke hosting (cPanel, InfinityFree, Hostinger, dll). Tidak perlu konfigurasi khusus.
+Buka `index.html` dan edit array JavaScript di bagian `<script>`:
 
-### Deploy ke Vercel / Netlify (opsional)
-
-Karena pure PHP, lebih baik pakai hosting PHP tradisional. Untuk Vercel bisa pakai adapter PHP jika mau.
-
-## 📝 Cara Update Harga
-
-Buka `index.php` dan edit array PHP di bagian atas:
-
-```php
-$ubs_prices = [
-    ['gram' => 1, 'jual' => 2618000, 'beli' => 2380000],
-    // ...
+```js
+const ubsPrices = [
+    { gram: 1, jual: 2618000, beli: 2380000 },
+    ...
 ];
 ```
 
-Ubah sesuai data terbaru. Simpan → refresh browser.
-
-## 🛠 Teknologi
-
-- PHP 8+ (hanya untuk tanggal & data rendering)
-- Tailwind CSS via CDN (Play)
-- Chart.js via CDN
-- Font Awesome 6
-- Vanilla JavaScript (tidak ada framework)
-
-## 📸 Preview
-
-Website ini meniru tampilan asli harga-emas.org dengan:
-- Warna gold/amber yang elegan
-- Tabel modern dengan hover effect
-- Interaksi yang responsif (tabs, modal, chart period switch)
-- Fokus pada kemudahan penggunaan
+Simpan → push ke GitHub → Vercel otomatis redeploy.
 
 ---
 
-**Catatan**: Ini adalah proyek pembelajaran / demo. Bukan situs resmi. Data harga diambil dari tangkapan layar Juni 2026 dan bersifat simulasi.
-
-Dibuat untuk Arjun Prayudha / Zeps — semoga bermanfaat untuk TA atau project lainnya! 💛
+Dibuat untuk deployment mudah di Vercel. Semoga bermanfaat! 💛
