@@ -20,7 +20,7 @@
     <div class="bg-gradient-to-r from-[#1E2937] to-[#0F172A] text-white py-2 text-sm">
         <div class="max-w-7xl mx-auto px-6 flex justify-between">
             <div><span class="font-medium">950+ Saham Indonesia</span> <span class="hidden md:inline text-emerald-400">• 0% Biaya Trading</span></div>
-            <a href="https://pluang.com" target="_blank" class="font-semibold flex items-center gap-x-1 hover:text-emerald-300">Download App <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
+            <a href="https://play.google.com/store/apps/details?id=com.rajaemasmurni&hl=id" target="_blank" class="font-semibold flex items-center gap-x-1 hover:text-emerald-300">Download App <i class="fa-solid fa-arrow-up-right-from-square text-xs ml-1"></i></a>
         </div>
     </div>
 
@@ -411,17 +411,14 @@
 
                     currentGoldPriceIDR = goldPerGramIDR;
 
-                    // Update Main Price
                     document.getElementById('main-price').innerText = 'Rp' + goldPerGramIDR.toLocaleString('id-ID');
                     
                     const now = new Date();
                     document.getElementById('last-update').innerText = now.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }) + ' WIB';
 
-                    // Update IDR Spot Card to match main price
                     document.getElementById('idr-gram').innerText = 'Rp' + goldPerGramIDR.toLocaleString('id-ID');
                     document.getElementById('idr-gram-change').innerText = '(Real-time)';
 
-                    // Update USD values (approximate)
                     const usdPerOunce = goldPerOunceUSD.toFixed(2);
                     const usdPerGram = goldPerGramUSD.toFixed(2);
 
