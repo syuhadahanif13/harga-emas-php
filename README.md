@@ -1,4 +1,4 @@
-# Harga-Emas.org Clone (Static Version)
+# Harga-Emas.org Inspired website
 
 **Versi static HTML** dari website harga-emas.org yang sudah dioptimalkan untuk deployment di **Vercel**.
 
